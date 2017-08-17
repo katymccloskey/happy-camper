@@ -6,8 +6,8 @@ git_source(:github) do |repo_name|
 end
 
 gem 'pry-rails'
-
-gem 'supercamp', git: 'https://github.com/kunomaclis/supercamp.git'
+gem 'supercamp', path: "/Users/apprentice/happy-camper/supercamp"
+# gem 'supercamp', git: 'https://github.com/kunomaclis/supercamp.git'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.3'
 # Use postgresql as the database for Active Record
