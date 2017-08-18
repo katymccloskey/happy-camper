@@ -7,7 +7,8 @@ end
 
 # Project Gems
 gem 'pry-rails'
-gem 'supercamp', git: 'https://github.com/kunomaclis/supercamp.git'
+gem 'supercamp', path: '/Users/apprentice/happy-camper/supercamp'
+# gem 'supercamp', git: 'https://github.com/kunomaclis/supercamp.git'
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'jquery-rails'
 gem 'devise'
