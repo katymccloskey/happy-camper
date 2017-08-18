@@ -10,10 +10,65 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170818214357) do
+ActiveRecord::Schema.define(version: 20170818221613) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "amenities", force: :cascade do |t|
+    t.string "name", limit: 20
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "campgrounds", force: :cascade do |t|
+    t.string "name", limit: 50, null: false
+    t.string "state", limit: 2, null: false
+    t.string "contract_id", null: false
+    t.string "facility_id", null: false
+    t.float "latitude"
+    t.float "longitude"
+    t.boolean "amps"
+    t.boolean "pets"
+    t.boolean "sewage"
+    t.boolean "water"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "cg_amenities", force: :cascade do |t|
+    t.bigint "campground_id"
+    t.bigint "amenity_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["amenity_id"], name: "index_cg_amenities_on_amenity_id"
+    t.index ["campground_id"], name: "index_cg_amenities_on_campground_id"
+  end
+
+  create_table "details", force: :cascade do |t|
+    t.string "description", null: false
+    t.string "reservation_url"
+    t.string "important_info"
+    t.string "recreations"
+    t.string "city", null: false
+    t.string "state", null: false
+    t.string "address"
+    t.string "zip_code"
+    t.string "contact"
+    t.bigint "campground_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["campground_id"], name: "index_details_on_campground_id"
+  end
+
+  create_table "favorites", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "campground_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["campground_id"], name: "index_favorites_on_campground_id"
+    t.index ["user_id"], name: "index_favorites_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
