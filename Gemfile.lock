@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/kunomaclis/supercamp.git
-  revision: 55020347245df80f069a3e5b34cbf12c322f29e9
+  revision: 5074ff2dca27c759992d6561094b50b25a9ccb83
   specs:
     supercamp (0.0.5)
       hashr (~> 0.0.0)
