@@ -4,19 +4,17 @@
     <title>HappyCamper</title>
     <%= csrf_meta_tags %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application' %>
+    <%= javascript_include_tag 'campgrounds' %>
+
+    <%= stylesheet_link_tag 'application' %>
+
+
+     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAYjxFHrWCx18PV3Co0fJBLi0bxz02SQE8&libraries=places"></script>
   </head>
 
   <body>
-
-  <ul class="nav">
-    <% if user_signed_in? -%>
-      <li><%= link_to 'Sign out', destroy_user_session_path, :method => :delete %></li>
-    <% else -%>
-      <li><%= link_to 'Sign in', new_user_session_path %></li>
-    <% end -%>
-  </ul>
+    <%= render "campgrounds/navbar" %>
 
     <%= yield %>
   </body>
