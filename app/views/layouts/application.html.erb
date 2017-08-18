@@ -4,15 +4,17 @@
     <title>HappyCamper</title>
     <%= csrf_meta_tags %>
 
-    <%= stylesheet_link_tag    'application' %>
     <%= javascript_include_tag 'application' %>
+    <%= javascript_include_tag 'campgrounds' %>
+
+    <%= stylesheet_link_tag 'application' %>
+
+
+     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAYjxFHrWCx18PV3Co0fJBLi0bxz02SQE8&libraries=places"></script>
   </head>
 
   <body>
     <%= render "campgrounds/navbar" %>
-  <ul class="nav">
-
-  </ul>
 
     <%= yield %>
   </body>
