@@ -10,7 +10,7 @@ class CreateDetails < ActiveRecord::Migration[5.1]
       t.string :address
       t.string :zip_code
       t.string :contact
-      t.refernces :campground
+      t.references :campground
 
       t.timestamps
     end
