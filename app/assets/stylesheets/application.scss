@@ -33,4 +33,21 @@ html, body {
     width: 100%;
 }
 
+.center-cropper-title {
+  width: 100px;
+  height: 100px;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+.no-split {
+ display: inline-block;
+}
+
+.center-cropped {
+  width: 150px;
+  height: 150px;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+
 
