@@ -22,16 +22,16 @@ ActiveRecord::Schema.define(version: 20170818221613) do
   end
 
   create_table "campgrounds", force: :cascade do |t|
-    t.string "name", limit: 50, null: false
-    t.string "state", limit: 2, null: false
+    t.string "name", limit: 75, null: false
+    t.string "state", limit: 4, null: false
     t.string "contract_id", null: false
     t.string "facility_id", null: false
     t.float "latitude"
     t.float "longitude"
-    t.boolean "amps"
-    t.boolean "pets"
-    t.boolean "sewage"
-    t.boolean "water"
+    t.string "amps"
+    t.string "pets"
+    t.string "sewage"
+    t.string "water"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
