@@ -22,10 +22,10 @@ ActiveRecord::Schema.define(version: 20170818221613) do
   end
 
   create_table "campgrounds", force: :cascade do |t|
-    t.string "name", limit: 75, null: false
-    t.string "state", limit: 4, null: false
-    t.string "contract_id", null: false
-    t.string "facility_id", null: false
+    t.string "name"
+    t.string "state"
+    t.string "contract_id"
+    t.string "facility_id"
     t.float "latitude"
     t.float "longitude"
     t.string "amps"
