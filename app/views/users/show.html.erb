@@ -1,0 +1,14 @@
+<h2>hello, <%= current_user.username %></h2>
+
+
+<% @campground.each_slice(3) do |campgrounds| %>
+
+  <div class="row">
+    <% campgrounds.each do |campground| %>
+      <div class="col-md-4"><%= campground.name %></div>
+    <% end %>
+  </div>
+<% end %>
+
+
+<button class="btn"><%= link_to 'Edit Your Profile', edit_user_registration_path %></button>

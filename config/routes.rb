@@ -5,5 +5,7 @@ Rails.application.routes.draw do
     sessions: 'users/sessions'
   }
 
+  resources :users, only: [:show]
+
   root 'campgrounds#index'
 end
