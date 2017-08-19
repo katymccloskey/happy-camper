@@ -2,7 +2,7 @@ class UsersController < ApplicationController
 
  def show
   @user = User.find(params[:id])
-  @campgrounds = Favorite.all
+  @campground = Campground.all.limit(12)
  end
 
 end

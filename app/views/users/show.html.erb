@@ -1,10 +1,11 @@
 <h2>hello, <%= current_user.username %></h2>
 
 
-<% @campgrounds.each_slice(3) do |campgrounds| %>
+<% @campground.each_slice(3) do |campgrounds| %>
+
   <div class="row">
     <% campgrounds.each do |campground| %>
-      <div class="col-md-4">campground.name</div>
+      <div class="col-md-4"><%= campground.name %></div>
     <% end %>
   </div>
 <% end %>
