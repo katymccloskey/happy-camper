@@ -6,13 +6,12 @@ class CampgroundsController < ApplicationController
       parent = details.find { |hash| hash.keys.include?(:parent) }.reduce[1]
 
       details.each do |detail|
-       amenity = Amenity.find_or_create_by(name: detail[:name]) if detail[:distance] && detail[:name]
-       @campground.amenities << amenity
+       @campground.amenities << Amenity.find_or_create_by(name: detail[:name]) if detail[:distance] && detail[:name]
      end
+
        prime_detail = Detail.create(city: details[0].city.titleize,
                                 state: details[0].state,
                                 address: details[0].street_address.titleize,
-                                zip: details[0].zip,
                                 description: parent.description,
                                 facilities_description: parent.facilities_description,
                                 important_info: parent.important_information,
@@ -21,7 +20,6 @@ class CampgroundsController < ApplicationController
                                 reservation_url: parent.full_reservation_url,
                                 campground: @campground
                                  )
-       @campground.detail << prime_detail
      end
 
    end
