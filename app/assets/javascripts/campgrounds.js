@@ -1,5 +1,6 @@
 var map;
-var infoWindow;
+var infowindow;
+
 function initMap(lat,lng) {
   // var austin = {lat: 30.2672, lng: -97.7431};
   var latitude = parseFloat(lat);
@@ -9,7 +10,7 @@ function initMap(lat,lng) {
 
   map = new google.maps.Map(document.getElementById('map-container'), {
     center: current,
-        zoom: 12
+    zoom: 10
   });
 
   infowindow = new google.maps.InfoWindow();
@@ -18,8 +19,7 @@ function initMap(lat,lng) {
     var request = {
     location: map.getCenter(),
     radius: 2500,
-    query: ['campgrounds'],
-    // query: current
+    query: 'campgrounds',
 
   };
   service.textSearch(request, callback);
