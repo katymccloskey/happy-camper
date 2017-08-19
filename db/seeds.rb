@@ -56,12 +56,19 @@ states = Array[ ["AK", "Alaska"],
 
 states.each do |state|
   campgrounds = Supercamp.campgrounds.state(state[0])
-  puts "found #{campgrounds.count} campgrounds in #{state[1]}!"
-  sleep 1
-  campgrounds.results.each do |camp|
-   Campground.find_or_create_by(name: camp[:facility_name], state: camp[:state], contract_id: camp[:contract_id],
-     facility_id: camp[:facility_id], latitude: camp[:latitude], longitude: camp[:longitude], amps: camp[:sites_with_amps],
-     pets: camp[:sites_with_pets_allowed], sewage: camp[:sites_with_sewer_hookup], water: camp[:sites_with_water_hookup])
- end
-
+  if campgrounds.count != 0
+    puts "found #{campgrounds.count} campgrounds in #{state[1]}!"
+    sleep 1
+    campgrounds.results.each do |camp|
+      if camp[:facility_name] != nil || camp[:state] != nil
+        Campground.find_or_create_by(name: camp[:facility_name].downcase.titleize, state: camp[:state],
+          picture: "http://www.reserveamerica.com#{camp[:facilty_photo]}", contract_id: camp[:contract_id],
+         facility_id: camp[:facility_id], latitude: camp[:latitude], longitude: camp[:longitude], amps: camp[:sites_with_amps],
+         pets: camp[:sites_with_pets_allowed], sewage: camp[:sites_with_sewer_hookup], water: camp[:sites_with_water_hookup])
+      end
+    end
+  else
+    puts "No campgrounds in #{state[1]}."
+    sleep 1
+  end
 end
