@@ -15,4 +15,6 @@
 //= require rails-ujs
 //= require turbolinks
 //= require mustache
+//= require underscore
+//= require gmaps/google
 //= require_tree .

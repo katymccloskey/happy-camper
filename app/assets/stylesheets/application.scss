@@ -3,8 +3,8 @@
 @import "font-awesome-sprockets";
 @import "font-awesome";
 /*
-#map-container {
-  height: 50%;
+#map {
+  height: 100%;
 
 }
  Optional: Makes the sample page fill the window.
@@ -56,3 +56,7 @@ html, body {
   padding: 10px;
 }
 
+#add-campgrounds{
+  overflow-y: scroll;
+  height: 450px;
+}
