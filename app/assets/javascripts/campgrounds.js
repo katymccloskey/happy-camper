@@ -48,6 +48,8 @@ function createMarker(place) {
 
 //-------------------------------add campsites to HTML layout-----------------------
 function addHtmlContent(result) {
+  // $('#add-campgrounds').children().empty();
+  $('#add-campgrounds').children().remove();
   var template = $('#campground-list').html();
     for ( var i = 0; i < result.length; i++ ) {
       // var rendered = Mustache.render(template, result[i]);
