@@ -23,5 +23,7 @@ class CampgroundsController < ApplicationController
    end
 
  end
-
+ def index
+  @campgrounds = Campground.where(name: "TX")
+ end
 end
