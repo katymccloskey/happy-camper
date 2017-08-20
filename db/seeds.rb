@@ -61,7 +61,7 @@ states.each do |state|
     sleep 2
     campgrounds.results.each do |camp|
       if camp[:facility_name] != nil || camp[:state] != nil
-        Campground.find_or_create_by(name: camp[:facility_name].downcase.titleize, state: camp[:state],
+        Campground.find_or_create_by(name: camp[:facility_name].titleize, state: camp[:state],
           picture: "http://www.reserveamerica.com#{camp[:facilty_photo]}", contract_id: camp[:contract_id],
          facility_id: camp[:facility_id], latitude: camp[:latitude], longitude: camp[:longitude], amps: camp[:sites_with_amps],
          pets: camp[:sites_with_pets_allowed], sewage: camp[:sites_with_sewer_hookup], water: camp[:sites_with_water_hookup])
