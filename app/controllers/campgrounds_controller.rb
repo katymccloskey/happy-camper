@@ -24,6 +24,6 @@ class CampgroundsController < ApplicationController
 
  end
  def index
-  @campgrounds = Campground.where(name: "TX")
+  @campgrounds = Campground.where(state: "TX")
  end
 end

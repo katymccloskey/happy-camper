@@ -14,6 +14,7 @@
 </div>
 
 
+
 <div class="container">
   <div>
     <div class="row">
@@ -25,11 +26,10 @@
   </div>
 </div>
 
-<script id='campground-list' class="col-md-4 " type="x-tmpl-mustache">
-  <li class="each-campground-list">
-    <a class="a-tags" href="campgrounds/{{ name }}">{{ name }}</a>
-    <p>{{ formatted_address }}</p>
-     <p>{{ rating }}</p>
-     <img src="{{ photos[0]}}">
-  </li></br>
-</script>
+
+
+<div id='campground-list' class="col-md-4 " type="x-tmpl-mustache">
+<%@campgrounds.each do |campground|%>
+  <li class="each-campground-list"><%=link_to "#{campground.name}"%> </li>
+<%end%>
+</div>
