@@ -1,12 +1,12 @@
 
 <div class="row">
-  <div class="header"><h1 class="text-center"><%=@campground.name%></h1></div>
+  <div class="header"><h1 class="text-center"><%= link_to "#{@campground.name}", "#{@campground.detail.reservation_url}"%></h1></div>
 </div>
 <div class="row">
   <div class="pictures container"><h1 class="text-center">Pictures go here</h1> </div>
 </div>
 
-<div class="container">
+
 <div class="map-detail-row row">
   <div class="detail container col-lg-8"><h3>Detail Container</h3>
     <div class="row">
@@ -16,37 +16,39 @@
     </div>
     <div class="row">
       <article class="description col-md-12">
-      <p><%=@campground.detail.orientation_description%></p>
+        <p><%=@campground.detail.orientation_description%></p>
       </article>
     </div>
     <div class="row">
       <article class="description col-md-12">
-      <p><%=@campground.detail.recreation_description%></p>
+        <p><%=@campground.detail.recreation_description%></p>
       </article>
     </div>
     <div class="row">
       <article class="description col-md-12">
-      <p><%=@campground.detail.facilities_description%></p>
+        <p><%=@campground.detail.facilities_description%></p>
       </article>
     </div>
     <div class="row">
       <article class="description col-md-12">
-      <p><%=@campground.detail.important_info%></p>
+        <p><%=@campground.detail.important_info%></p>
       </article>
     </div>
     <!-- Add a new row for each attribute. col-md-12 will default to filling out the parent container -->
   </div>
 
-  <div class="map container col-lg-4"><h3>Map Container</h3>
-     <div class="row">
+  <div class="map container col-lg-4"><h3>Location:</h3>
+   <div class="row">
     <!-- Add a new row for each attribute. col-md-12 will default to filling out the parent container -->
-      <div class="col-md-12">
-       <div id="map" style='width: 98%; height: 400px;'></div>
-      </div>
-    </div>
-  </div>
+    <div class="col-md-12">
+     <div id="map" style='width: 98%; height: 400px;'></div>
+     <br>
+   </div>
+
+ </div>
 </div>
 </div>
+
 
 <script>
  var campground = <%= @show.html_safe %>;

@@ -1,5 +1,5 @@
 
-<div class="container" style="">
+<div class="row">
   <form class="search-submit img-overlay text-center"  action="/" method="get">
     <div class="search ">
       <div class="input-group input-group-lg lead" >
@@ -15,31 +15,31 @@
 </div>
 
 
-<div class="container">
-  <div>
-    <div class="row">
-      <div class="col-md-8">
 
-      <div id="map" style='width: 98%; height: 400px;'></div>
-        <script>
-          console.log("HI!");
-          handler = Gmaps.build('Google');
-          handler.buildMap({ provider: {zoom: 5, center: new google.maps.LatLng(<%=@campgrounds.first.latitude%>, <%=@campgrounds.first.longitude%>), mapTypeId: google.maps.MapTypeId.ROADMAP}, internal: {id: 'map'}}, function(){
-            markers = handler.addMarkers(<%=raw @hash.to_json %>);
-            handler.bounds.extendWith(markers);
-          });
-        </script>
+<div>
+  <div class="row">
+    <div class="col-md-8">
 
-      </div>
-      <div id="add-campgrounds" class="col-md-4">
+    <div id="map"></div>
+      <script>
+        console.log("HI!");
+        handler = Gmaps.build('Google');
+        handler.buildMap({ provider: {zoom: 5, center: new google.maps.LatLng(<%=@campgrounds.first.latitude%>, <%=@campgrounds.first.longitude%>), mapTypeId: google.maps.MapTypeId.ROADMAP}, internal: {id: 'map'}}, function(){
+          markers = handler.addMarkers(<%=raw @hash.to_json %>);
+          handler.bounds.extendWith(markers);
+        });
+      </script>
+
+    </div>
+    <div id="add-campgrounds" class="col-md-4">
       <div id='campground-list' type="x-tmpl-mustache">
-  <%@campgrounds.each do |campground|%>
-  <li class="each-campground-list"><%=link_to "#{campground.name}", campground_path(campground)%> </li>
-  <%end%>
-</div>
-</div>
+        <%@campgrounds.each do |campground|%>
+        <li class="each-campground-list"><%=link_to "#{campground.name}", campground_path(campground)%> </li>
+        <%end%>
+      </div>
     </div>
   </div>
 </div>
+
 
 
