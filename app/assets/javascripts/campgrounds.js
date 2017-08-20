@@ -89,10 +89,10 @@ function initSearch(search_term) {
 // Run the initialize function when the window has finished loading.
 
 $( document ).ready(function() {
-    console.log( "ready!" );
+    // console.log( "ready!" );
 
 
-  $.getJSON('https:/ipinfo.io', function(d){
+  var loadMap = $.getJSON('https:/ipinfo.io', function(d){
     console.log("assigning location data");
     loc = d.loc.split(",");
 
@@ -110,5 +110,7 @@ $( document ).ready(function() {
     initSearch(search);
   });
 
+ $('.navbar-brand').on('click',function(event){
 
+ })
 });
