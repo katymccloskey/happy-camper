@@ -23,3 +23,5 @@ class CampgroundsController < ApplicationController
    end
 
  end
+
+end
