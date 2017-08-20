@@ -33,7 +33,7 @@
       <div id="add-campgrounds" class="col-md-4">
       <div id='campground-list' type="x-tmpl-mustache">
   <%@campgrounds.each do |campground|%>
-  <li class="each-campground-list"><%=link_to "#{campground.name}"%> </li>
+  <li class="each-campground-list"><%=link_to "#{campground.name}", campground_path(campground)%> </li>
   <%end%>
 </div>
 </div>
