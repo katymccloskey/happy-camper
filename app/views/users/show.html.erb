@@ -1,14 +1,17 @@
 <h2>hello, <%= current_user.username %></h2>
 
+<div class="container">
+  <table class="table text-center">
+     <% @campground.each_slice(3) do |campgrounds| %>
+       <tbody>
+           <% campgrounds.each do |campground| %>
+             <td><%= image_tag("#{campground.picture}") %><br><%= link_to "#{campground.name}", campground_path(campground) %></td>
+           <% end %>
+       </tbody>
+     <% end %>
+  </table>
+</div>
 
-<% @campground.each_slice(3) do |campgrounds| %>
-
-  <div class="row">
-    <% campgrounds.each do |campground| %>
-      <div class="col-md-4"><%= campground.name %></div>
-    <% end %>
-  </div>
-<% end %>
 
 
 <button class="btn"><%= link_to 'Edit Your Profile', edit_user_registration_path %></button>
