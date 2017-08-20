@@ -15,6 +15,10 @@ html, body {
 }
 */
 
+html, body{
+font-family: 'Encode Sans', sans-serif;
+}
+
 .iframe-container{
     position: relative;
     width: 100%;
@@ -31,6 +35,10 @@ html, body {
     padding: 0;
     height: 100%;
     width: 100%;
+}
+
+.container {
+  box-shadow: 2px 2px 2px 2px gray ;
 }
 
 .center-cropper-title {

@@ -21,7 +21,6 @@ class CampgroundsController < ApplicationController
       campground: @campground
       )
    end
-
  end
 
    def index
