@@ -25,5 +25,9 @@ class CampgroundsController < ApplicationController
  end
  def index
   @campgrounds = Campground.where(state: "TX")
+  @hash = Gmaps4rails.build_markers(@campgrounds) do |campground, marker|
+    marker.lat campground.latitude
+    marker.lng campground.longitude
+  end
  end
 end

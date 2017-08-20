@@ -4,9 +4,9 @@
       <div class="input-group input-group-lg lead" >
         <input type="text" id="search-input" class="searchTerm form-control " placeholder="Where do you want to go camping?">
         <span class="input-group-btn ">
-        <button type="submit" class="btn btn-lg  ">
-        <i class="fa fa-search"></i>
-        </button>
+          <button type="submit" class="btn btn-lg  ">
+            <i class="fa fa-search"></i>
+          </button>
         </span>
       </div>
     </div>
@@ -19,10 +19,12 @@
   <div>
     <div class="row">
       <div class="col-md-8">
-    <script>
-        <div id='map-container' class="iframe-container "></div>
-        createmarker(<%=campground.lat%>)
-        </script>
+        <div style='width: 800px;'>
+          <div id="map" style='width: 800px; height: 400px;'></div>
+          <script>
+          markers = handler.addMarkers(<%raw @hash.to_json %>);
+          </script>
+        </div>
       </div>
       <div id="add-campgrounds" class="col-md-4"></div>
     </div>
@@ -32,7 +34,7 @@
 
 
 <div id='campground-list' class="col-md-4 " type="x-tmpl-mustache">
-<%@campgrounds.each do |campground|%>
+  <%@campgrounds.each do |campground|%>
   <li class="each-campground-list"><%=link_to "#{campground.name}"%> </li>
-<%end%>
+  <%end%>
 </div>
