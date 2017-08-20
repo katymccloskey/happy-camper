@@ -13,6 +13,11 @@
   </div>
   <div class="map container col-md-4"><h3>Map Container</h3>
     <!-- Add a new row for each attribute. col-md-12 will default to filling out the parent container -->
-  </div>
+    <div id="map" style='width: auto; height: 400px;'></div>
+    </div>
 </div>
 
+<script>
+ var campground = <%= @show.html_safe %>;
+ initMap(campground);
+</script>

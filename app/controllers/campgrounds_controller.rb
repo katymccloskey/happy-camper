@@ -22,6 +22,8 @@ class CampgroundsController < ApplicationController
       )
    end
 
+   @show = {lat:@campground.latitude,lng:@campground.longitude,name:@campground.name,city:@campground.detail.city,state:@campground.state}.to_json
+
  end
 
    def index
