@@ -1,23 +1,53 @@
 
 <div class="row">
-<div class="header"><h1 class="text-center">CG NAME</h1></div>
+  <div class="header"><h1 class="text-center"><%=@campground.name%></h1></div>
 </div>
 <div class="row">
   <div class="pictures container"><h1 class="text-center">Pictures go here</h1> </div>
 </div>
 
 
-<div class="row">
-  <div class="detail container col-md-8"><h3>Detail Container</h3>
+<div class="map-detail-row row">
+  <div class="detail container col-lg-8"><h3>Detail Container</h3>
+    <div class="row">
+      <article class="description col-md-12">
+        <p><%=@campground.detail.description%></p>
+      </article>
+    </div>
+    <div class="row">
+      <article class="description col-md-12">
+      <p><%=@campground.detail.orientation_description%></p>
+      </article>
+    </div>
+    <div class="row">
+      <article class="description col-md-12">
+      <p><%=@campground.detail.recreation_description%></p>
+      </article>
+    </div>
+    <div class="row">
+      <article class="description col-md-12">
+      <p><%=@campground.detail.facilities_description%></p>
+      </article>
+    </div>
+    <div class="row">
+      <article class="description col-md-12">
+      <p><%=@campground.detail.important_info%></p>
+      </article>
+    </div>
     <!-- Add a new row for each attribute. col-md-12 will default to filling out the parent container -->
   </div>
-  <div class="map container col-md-4"><h3>Map Container</h3>
+
+  <div class="map container col-lg-4"><h3>Map Container</h3>
     <!-- Add a new row for each attribute. col-md-12 will default to filling out the parent container -->
     <div id="map" style='width: auto; height: 400px;'></div>
     </div>
 </div>
 
+
 <script>
  var campground = <%= @show.html_safe %>;
  initMap(campground);
 </script>
+
+
+
