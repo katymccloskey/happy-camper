@@ -14,27 +14,33 @@
 </div>
 
 
-
 <div class="container">
   <div>
     <div class="row">
       <div class="col-md-8">
-        <div style='width: 800px;'>
-          <div id="map" style='width: 800px; height: 400px;'></div>
-          <script>
-          markers = handler.addMarkers(<%raw @hash.to_json %>);
-          </script>
-        </div>
+
+      <div id="map" style='width: auto; height: 400px;'></div>
+        <script>
+          console.log("HI!");
+          handler = Gmaps.build('Google');
+          handler.buildMap({ provider: {zoom: 6, center: new google.maps.LatLng(<%=@campgrounds.first.latitude%>, <%=@campgrounds.first.longitude%>), mapTypeId: google.maps.MapTypeId.ROADMAP}, internal: {id: 'map'}}, function(){
+            markers = handler.addMarkers(<%=raw @hash.to_json %>);
+            handler.bounds.extendWith(markers);
+          });
+        </script>
+
       </div>
-      <div id="add-campgrounds" class="col-md-4"></div>
+      <div id="add-campgrounds" class="col-md-4">
+      <div id='campground-list' type="x-tmpl-mustache">
+  <%@campgrounds.each do |campground|%>
+  <li class="each-campground-list"><%=link_to "#{campground.name}"%> </li>
+  <%end%>
+</div>
+</div>
     </div>
   </div>
 </div>
 
 
 
-<div id='campground-list' class="col-md-4 " type="x-tmpl-mustache">
-  <%@campgrounds.each do |campground|%>
-  <li class="each-campground-list"><%=link_to "#{campground.name}"%> </li>
-  <%end%>
-</div>
+
