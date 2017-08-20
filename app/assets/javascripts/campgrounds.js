@@ -25,7 +25,7 @@ function initMap(lat,lng) {
 }
 
 function callback(results, status) {
-  // $("#campground-list").html(htmlIt(results));
+  $("#campground-list").html(addHtmlContent(results));
   if (status === google.maps.places.PlacesServiceStatus.OK) {
     for (var i = 0; i < results.length; i++) {
       createMarker(results[i]);
@@ -46,8 +46,23 @@ function createMarker(place) {
   });
 }
 
+//-------------------------------add campsites to HTML layout-----------------------
+function addHtmlContent(result) {
+  var template = $('#campground-list').html();
+    for ( var i = 0; i < result.length; i++ ) {
+      // var rendered = Mustache.render(template, result[i]);
+      console.log(result[i])
+      if (result[i].photos){
+         var rendered = Mustache.render(template, result[i]);
+        console.log(result[i].photos[0].html_attributions);
+      }
+
+      $('#add-campgrounds').append(rendered);
+    }
+}
 
 
+// gets search result and updates map
 function initSearch(search_term) {
 
   var map = new google.maps.Map(document.createElement('div'));

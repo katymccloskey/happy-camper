@@ -21,8 +21,8 @@ html, body {
     padding-bottom: 56.25%; /* Ratio 16:9 ( 100%/16*9 = 56.25% ) */
 }
 .iframe-container > *{
-    display: block;
-    position: absolute;
+
+
     top: 0;
     right: 0;
     bottom: 0;
@@ -50,4 +50,9 @@ html, body {
   background-repeat: no-repeat;
 }
 
+.each-campground-list{
+  list-style: none;
+  border: solid black;
+  padding: 10px;
+}
 

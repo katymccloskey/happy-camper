@@ -13,11 +13,23 @@
   </form>
 </div>
 
+
 <div class="container">
-  <div class="col-lg-8 col-md-8 col-sm-8 ">
-    <div id='map-container' class="iframe-container "></div>
+  <div>
+    <div class="row">
+      <div class="col-md-8">
+        <div id='map-container' class="iframe-container "></div>
+      </div>
+      <div id="add-campgrounds" class="col-md-4"></div>
+    </div>
   </div>
-
-  <div id='campground-list' class="col-lg-4 col-md-4 col-sm-4 "> </div>
-
 </div>
+
+<script id='campground-list' class="col-md-4 " type="x-tmpl-mustache">
+  <li class="each-campground-list">
+    <a class="a-tags" href="campgrounds/{{ name }}">{{ name }}</a>
+    <p>{{ formatted_address }}</p>
+     <p>{{ rating }}</p>
+     <img src="{{ photos[0]}}">
+  </li></br>
+</script>
