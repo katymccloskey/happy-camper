@@ -27,6 +27,7 @@
         handler.buildMap({ provider: {zoom: 5, center: new google.maps.LatLng(<%=@campgrounds.first.latitude%>, <%=@campgrounds.first.longitude%>), mapTypeId: google.maps.MapTypeId.ROADMAP}, internal: {id: 'map'}}, function(){
           markers = handler.addMarkers(<%=raw @hash.to_json %>);
           handler.bounds.extendWith(markers);
+
         });
       </script>
 

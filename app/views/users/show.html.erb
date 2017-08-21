@@ -1,6 +1,6 @@
 <h2>hello, <%= current_user.username %></h2>
 
-<div class="container">
+
   <table class="table text-center">
      <% @campground.each_slice(3) do |campgrounds| %>
        <tbody>
@@ -10,7 +10,7 @@
        </tbody>
      <% end %>
   </table>
-</div>
+
 
 
 
