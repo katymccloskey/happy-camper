@@ -27,6 +27,15 @@
         <%@campground.find_amenity_fun.each do |amenity|%>
         <li><%=amenity%></li>
         <%end%>
+        <%@campground.find_amenity_water.each do |amenity|%>
+        <li><%=amenity%></li>
+        <%end%>
+         <%@campground.find_amenity_fire.each do |amenity|%>
+        <li><%=amenity%></li>
+        <%end%>
+        <%@campground.find_amenity_accessible.each do |amenity|%>
+        <li><%=amenity%></li>
+        <%end%>
       </ul>
     </div>
     <div class="row">
@@ -34,9 +43,7 @@
         <p><%=@campground.detail.orientation_description%></p>
       </article>
       <ul class="water info-block col-md-4">
-        <%@campground.find_amenity_water.each do |amenity|%>
-        <li><%=amenity%></li>
-        <%end%>
+
       </ul>
     </div>
     <div class="row">
@@ -44,9 +51,7 @@
         <p><%=@campground.detail.recreation_description%></p>
       </article>
       <ul class="fire info-block col-md-4">
-        <%@campground.find_amenity_fire.each do |amenity|%>
-        <li><%=amenity%></li>
-        <%end%>
+
       </ul>
     </div>
     <div class="row">
@@ -54,9 +59,7 @@
         <p><%=@campground.detail.facilities_description%></p>
       </article>
       <ul class="accessibility info-block col-md-4">
-        <%@campground.find_amenity_accessible.each do |amenity|%>
-        <li><%=amenity%></li>
-        <%end%>
+
       </ul>
     </div>
     <div class="row">
