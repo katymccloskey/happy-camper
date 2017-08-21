@@ -1,4 +1,7 @@
 class CampgroundsController < ApplicationController
+
+  include CampgroundsHelper
+
   def show
 
     @campground = Campground.find(params[:id])
@@ -24,24 +27,36 @@ class CampgroundsController < ApplicationController
         reservation_url: parent.full_reservation_url,
         campground: @campground
         )
-     end
+      end
 
      @show = {lat:@campground.latitude,lng:@campground.longitude,name:@campground.name,city:@campground.detail.city,state:@campground.state}.to_json
-   end
- end
-
- def index
-  @campgrounds = Campground.where(state: "CA")
-  @state = @campgrounds.first.state
-  @hash = Gmaps4rails.build_markers(@campgrounds) do |campground, marker|
-    marker.lat campground.latitude
-    marker.lng campground.longitude
-    marker.infowindow campground.name
+    end
   end
-end
 
-def no_detail
-  @campground = Campground.find(params[:id])
-end
+  def index
+    @campgrounds = Campground.where(state: "CA")
+    @state = @campgrounds.first.state
+    @hash = Gmaps4rails.build_markers(@campgrounds) do |campground, marker|
+      marker.lat campground.latitude
+      marker.lng campground.longitude
+      marker.infowindow campground.name
+    end
+  end
+
+  def toggle_favorite
+    @campground = Campground.find(params[:id])
+    @user = current_user
+    if found_favorite(@user, @campground)
+      found_favorite(@user, @campground).destroy
+      redirect_to @campground
+    else
+      @user.favorites.create(campground: @campground, user: @user)
+      redirect_to @campground
+    end
+  end
+
+  def no_detail
+    @campground = Campground.find(params[:id])
+  end
 
 end
