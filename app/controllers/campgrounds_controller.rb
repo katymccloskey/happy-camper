@@ -5,6 +5,8 @@ class CampgroundsController < ApplicationController
   def show
 
     @campground = Campground.find(params[:id])
+    @place_stuff = @campground.google_photos
+
     if @campground.contract_id.length < 4
       redirect_to no_detail_path(@campground)
     else
@@ -34,7 +36,7 @@ class CampgroundsController < ApplicationController
   end
 
   def index
-    @campgrounds = Campground.where(state: "CA")
+    @campgrounds = Campground.where(state: "TX")
     @state = @campgrounds.first.state
     @hash = Gmaps4rails.build_markers(@campgrounds) do |campground, marker|
       marker.lat campground.latitude
