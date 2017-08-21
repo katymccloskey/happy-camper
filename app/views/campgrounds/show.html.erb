@@ -1,9 +1,16 @@
 
 <div class="row">
-  <div class="header"><h1 class="text-center"><%= link_to "#{@campground.name}", "#{@campground.detail.reservation_url}"%></h1></div>
+  <div class="header"><h1 class="text-center"><%= link_to "#{@campground.name}", "#{@campground.detail.reservation_url}"%>    <%if found_favorite(current_user, @campground)%>
+    <%= button_to 'Unfavorite', favorite_campground_path(@campground), method: :post, class:"btn btn-info btn-sm" %>
+    <%else%>
+    <%= button_to 'Favorite', favorite_campground_path(@campground), method: :post, class:"btn btn-info btn-sm" %>
+    <% end %></h1>
+  </div>
 </div>
+
 <div class="row">
-  <div class="pictures container"><h1 class="text-center">Pictures go here</h1> </div>
+  <div class="pictures container"><h1 class="text-center">Pictures go here</h1>
+  </div>
 </div>
 
 
@@ -34,9 +41,7 @@
         <p><%=@campground.detail.important_info%></p>
       </article>
     </div>
-    <!-- Add a new row for each attribute. col-md-12 will default to filling out the parent container -->
   </div>
-
   <div class="map container col-lg-4"><h3>Location:</h3>
    <div class="row">
     <!-- Add a new row for each attribute. col-md-12 will default to filling out the parent container -->
@@ -47,6 +52,7 @@
 
  </div>
 </div>
+
 </div>
 
 
