@@ -1,57 +1,59 @@
 
 <div class="row">
-  <div class="header"><h1 class="text-center"><%=@campground.name%></h1></div>
+  <div class="header"><h1 class="text-center"><%=@campground.name%>
+    <%if found_favorite(current_user, @campground)%>
+      <%= button_to 'Unfavorite', favorite_campground_path(@campground), method: :post, class:"btn btn-info btn-sm" %>
+    <%else%>
+      <%= button_to 'Favorite', favorite_campground_path(@campground), method: :post, class:"btn btn-info btn-sm" %>
+    <% end %>
+  </h1></div>
 </div>
 
-<%if found_favorite(current_user, @campground)%>
-   <%=link_to('Unfavorite', favorite_campground_path(@campground), method: :post ) %>
-<%else%>
-   <%=link_to('Favorite', favorite_campground_path(@campground), method: :post ) %>
-<% end %>
+
 
 <div class="row">
   <div class="pictures container"><h1 class="text-center">Pictures go here</h1> </div>
 </div>
 
 <div class="container">
-<div class="map-detail-row row">
-  <div class="detail container col-lg-8"><h3>Detail Container</h3>
-    <div class="row">
-      <article class="description col-md-12">
-        <p><%=@campground.detail.description%></p>
-      </article>
+  <div class="map-detail-row row">
+    <div class="detail container col-lg-8"><h3>Detail Container</h3>
+      <div class="row">
+        <article class="description col-md-12">
+          <p><%=@campground.detail.description%></p>
+        </article>
+      </div>
+      <div class="row">
+        <article class="description col-md-12">
+          <p><%=@campground.detail.orientation_description%></p>
+        </article>
+      </div>
+      <div class="row">
+        <article class="description col-md-12">
+          <p><%=@campground.detail.recreation_description%></p>
+        </article>
+      </div>
+      <div class="row">
+        <article class="description col-md-12">
+          <p><%=@campground.detail.facilities_description%></p>
+        </article>
+      </div>
+      <div class="row">
+        <article class="description col-md-12">
+          <p><%=@campground.detail.important_info%></p>
+        </article>
+      </div>
+      <!-- Add a new row for each attribute. col-md-12 will default to filling out the parent container -->
     </div>
-    <div class="row">
-      <article class="description col-md-12">
-      <p><%=@campground.detail.orientation_description%></p>
-      </article>
-    </div>
-    <div class="row">
-      <article class="description col-md-12">
-      <p><%=@campground.detail.recreation_description%></p>
-      </article>
-    </div>
-    <div class="row">
-      <article class="description col-md-12">
-      <p><%=@campground.detail.facilities_description%></p>
-      </article>
-    </div>
-    <div class="row">
-      <article class="description col-md-12">
-      <p><%=@campground.detail.important_info%></p>
-      </article>
-    </div>
-    <!-- Add a new row for each attribute. col-md-12 will default to filling out the parent container -->
-  </div>
 
-  <div class="map container col-lg-4"><h3>Map Container</h3>
+    <div class="map container col-lg-4"><h3>Map Container</h3>
      <div class="row">
-    <!-- Add a new row for each attribute. col-md-12 will default to filling out the parent container -->
+      <!-- Add a new row for each attribute. col-md-12 will default to filling out the parent container -->
       <div class="col-md-12">
        <div id="map" style='width: 98%; height: 400px;'></div>
-      </div>
-    </div>
-  </div>
+     </div>
+   </div>
+ </div>
 </div>
 </div>
 
