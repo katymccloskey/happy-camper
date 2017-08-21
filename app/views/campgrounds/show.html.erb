@@ -2,6 +2,13 @@
 <div class="row">
   <div class="header"><h1 class="text-center"><%=@campground.name%></h1></div>
 </div>
+
+<%if found_favorite(current_user, @campground)%>
+   <%=link_to('Unfavorite', favorite_campground_path(@campground), method: :post ) %>
+<%else%>
+   <%=link_to('Favorite', favorite_campground_path(@campground), method: :post ) %>
+<% end %>
+
 <div class="row">
   <div class="pictures container"><h1 class="text-center">Pictures go here</h1> </div>
 </div>

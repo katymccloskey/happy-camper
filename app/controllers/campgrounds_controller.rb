@@ -1,4 +1,7 @@
 class CampgroundsController < ApplicationController
+
+  include CampgroundsHelper
+
   def show
     @campground = Campground.find(params[:id])
     if @campground.detail.nil?
@@ -36,5 +39,15 @@ class CampgroundsController < ApplicationController
     end
    end
 
-
+  def toggle_favorite
+    @campground = Campground.find(params[:id])
+    @user = current_user
+    if found_favorite(@user, @campground)
+      found_favorite(@user, @campground).destroy
+      redirect_to @campground
+    else
+      @user.favorites.create(campground: @campground, user: @user)
+      redirect_to @campground
+    end
+  end
 end
