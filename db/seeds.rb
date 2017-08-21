@@ -58,7 +58,7 @@ states.each do |state|
   campgrounds = Supercamp.campgrounds.state(state[0])
   if campgrounds.count != 0
     puts "found #{campgrounds.count} campgrounds in #{state[1]}!"
-    sleep 2
+    sleep 3
     campgrounds.results.each do |camp|
       if camp[:facility_name] != nil || camp[:state] != nil
         Campground.find_or_create_by(name: camp[:facility_name].titleize, state: camp[:state],
@@ -69,6 +69,6 @@ states.each do |state|
     end
   else
     puts "No campgrounds in #{state[1]}."
-    sleep 2
+    sleep 3
   end
 end
