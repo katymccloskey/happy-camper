@@ -257,8 +257,8 @@ Devise.setup do |config|
     # ==> OmniAuth
     # Add a OmniAuth providers.
     User.omniauth_providers.each do |provider_name|
-        api_key = Rails.application.secrets.GOOGLE_KEY
-        api_secret = Rails.application.secrets.GOOGLE_SECRET
+        api_key = ENV['GOOGLE_KEY']
+        api_secret = ENV['GOOGLE_SECRET']
         config.omniauth provider_name, api_key, api_secret
     end
 

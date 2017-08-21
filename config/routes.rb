@@ -10,5 +10,7 @@ Rails.application.routes.draw do
 
   post 'campgrounds/:id/favorite', to: 'campgrounds#toggle_favorite', as: 'favorite_campground'
 
+  get 'campgrounds/:id/no-detail', to: "campgrounds#no_detail", as: 'no_detail'
+
   root 'campgrounds#index'
 end

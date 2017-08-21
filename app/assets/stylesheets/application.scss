@@ -15,8 +15,19 @@ html, body {
 }
 */
 
+
+
+
+
 html, body{
 font-family: 'Encode Sans', sans-serif;
+}
+
+#map {
+  width: 98%;
+  height: 400px;
+  border-radius:6px;
+  border: 1px solid gray;
 }
 
 .iframe-container{
@@ -38,7 +49,13 @@ font-family: 'Encode Sans', sans-serif;
 }
 
 .container {
-  box-shadow: 2px 2px 2px 2px gray ;
+  box-shadow: 2px 2px 2px 2px gray;
+  border-radius: 5px;
+  background: #f3f1e5; /* Old browsers */
+background: -moz-linear-gradient(top, #f3f1e5 0%, #efeddf 40%, #eae7d6 100%); /* FF3.6-15 */
+background: -webkit-linear-gradient(top, #f3f1e5 0%,#efeddf 40%,#eae7d6 100%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(to bottom, #f3f1e5 0%,#efeddf 40%,#eae7d6 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f3f1e5', endColorstr='#eae7d6',GradientType=0 ); /* IE6-9 */
 }
 
 .center-cropper-title {
@@ -60,7 +77,7 @@ font-family: 'Encode Sans', sans-serif;
 
 .each-campground-list{
   list-style: none;
-  border: solid black;
+  border-bottom: solid gray;
   padding: 10px;
 }
 
