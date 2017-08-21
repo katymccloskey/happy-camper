@@ -4,4 +4,63 @@ module CampgroundsHelper
     Favorite.find_by(user_id: user.id, campground_id: campground.id)
   end
 
+  def self.states_list(term)
+
+    states = {
+      "Alabama" => "AL",
+      "Arkansas" => "AR",
+      "Arizona" => "AZ",
+      "California" => "CA",
+      "Colorado" => "CO",
+      "Connecticut" => "CT",
+      "District of Columbia" => "DC",
+      "Delaware" => "DE",
+      "Florida" => "FL",
+      "Georgia" => "GA",
+      "Hawaii" => "HI",
+      "Iowa" => "IA",
+      "Idaho" => "ID",
+      "Illinois" => "IL",
+      "Indiana" => "IN",
+      "Kansas" => "KS",
+      "Kentucky" => "KY",
+      "Louisiana" => "LA",
+      "Massachusetts" => "MA",
+      "Maryland" => "MD",
+      "Maine" => "ME",
+      "Michigan" => "MI",
+      "Minnesota" => "MN",
+      "Missouri" => "MO",
+      "Mississippi" => "MS",
+      "Montana" => "MT",
+      "North Carolina" => "NC",
+      "North Dakota" => "ND",
+      "Nebraska" => "NE",
+      "New Hampshire" => "NH",
+      "New Jersey" => "NJ",
+      "New Mexico" => "NM",
+      "Nevada" => "NV",
+      "New York" => "NY",
+      "Ohio" => "OH",
+      "Oklahoma" => "OK",
+      "Oregon" => "OR",
+      "Pennsylvania" => "PA",
+      "Puerto Rico" => "PR",
+      "Rhode Island" => "RI",
+      "South Carolina" => "SC",
+      "South Dakota" => "SD",
+      "Tennessee" => "TE",
+      "Texas" => "TX",
+      "Utah" => "UT",
+      "Virginia" => "VA",
+      "Virgin Islands" => "VI",
+
+    }
+
+    if states.has_key?(term)
+      return states[term]
+    end
+
+  end
+
 end

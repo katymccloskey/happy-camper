@@ -34,13 +34,34 @@ class CampgroundsController < ApplicationController
   end
 
   def index
-    @campgrounds = Campground.where(state: "CA")
-    @state = @campgrounds.first.state
-    @hash = Gmaps4rails.build_markers(@campgrounds) do |campground, marker|
-      marker.lat campground.latitude
-      marker.lng campground.longitude
-      marker.infowindow campground.name
+
+    if params[:term]
+      term = params[:term].titleize
+      state = params[:term].titleize
+
+      if CampgroundsHelper::states_list(state)
+        state = CampgroundsHelper::states_list(state)
+         @campgrounds = Campground.where('state ILIKE ?', "%#{state}%")
+
+      else
+         @campgrounds = Campground.where('name ILIKE ?', "%#{term}%")
+      end
+
+
+      if @campgrounds.empty?
+        @campgrounds = Campground.all
+      end
+
+    else
+      @campgrounds = Campground.all
     end
+
+      @state = @campgrounds.first.state
+      @hash = Gmaps4rails.build_markers(@campgrounds) do |campground, marker|
+        marker.lat campground.latitude
+        marker.lng campground.longitude
+        marker.infowindow campground.name
+      end
   end
 
   def toggle_favorite
@@ -57,6 +78,10 @@ class CampgroundsController < ApplicationController
 
   def no_detail
     @campground = Campground.find(params[:id])
+  end
+
+  def campground_params
+    params.require(:campgruond).permit(:name, :state)
   end
 
 end
