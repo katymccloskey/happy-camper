@@ -3,8 +3,9 @@ class CampgroundsController < ApplicationController
   include CampgroundsHelper
 
   def show
-
     @campground = Campground.find(params[:id])
+    @place_stuff = @campground.google_photos
+
     if @campground.contract_id.length < 4
       redirect_to no_detail_path(@campground)
     else
@@ -17,21 +18,24 @@ class CampgroundsController < ApplicationController
        end
 
        prime_detail = Detail.create(city: details[0].city.titleize,
+        # Gsub madness
         state: details[0].state,
         address: details[0].street_address.titleize,
-        description: parent.description,
-        facilities_description: parent.facilities_description,
-        important_info: parent.important_information,
-        recreation_description: parent.recreation_description,
-        orientation_description: parent.orientation_description,
+        description: parent.description.gsub(/&apos;/, "'").gsub(/&amp;#39;/, ","),
+        facilities_description: parent.facilities_description.gsub(/&apos;/, "'").gsub(/&amp;#39;/, ","),
+        # Ugly Gsub \n generator for important_info don't look
+        important_info: parent.important_information.gsub(/&apos;/, "'").gsub(/&amp;#39;/, ",").gsub(/\. /, ". \n "),
+        recreation_description: parent.recreation_description.gsub(/&apos;/, "'").gsub(/&amp;#39;/, ","),
+        orientation_description: parent.orientation_description.gsub(/&apos;/, "'").gsub(/&amp;#39;/, ","),
         reservation_url: parent.full_reservation_url,
         campground: @campground
         )
-      end
+     end
 
      @show = {lat:@campground.latitude,lng:@campground.longitude,name:@campground.name,city:@campground.detail.city,state:@campground.state}.to_json
-    end
-  end
+   end
+ end
+
 
   def index
 
@@ -62,23 +66,24 @@ class CampgroundsController < ApplicationController
         marker.lng campground.longitude
         marker.infowindow campground.name
       end
-  end
 
-  def toggle_favorite
-    @campground = Campground.find(params[:id])
-    @user = current_user
-    if found_favorite(@user, @campground)
-      found_favorite(@user, @campground).destroy
-      redirect_to @campground
-    else
-      @user.favorites.create(campground: @campground, user: @user)
-      redirect_to @campground
-    end
-  end
+end
 
-  def no_detail
-    @campground = Campground.find(params[:id])
+def toggle_favorite
+  @campground = Campground.find(params[:id])
+  @user = current_user
+  if found_favorite(@user, @campground)
+    found_favorite(@user, @campground).destroy
+    redirect_to @campground
+  else
+    @user.favorites.create(campground: @campground, user: @user)
+    redirect_to @campground
   end
+end
+
+def no_detail
+  @campground = Campground.find(params[:id])
+end
 
   def campground_params
     params.require(:campgruond).permit(:name, :state)
