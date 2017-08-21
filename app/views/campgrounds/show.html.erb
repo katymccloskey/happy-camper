@@ -16,8 +16,10 @@
   </div>
 </div>
 
+<!-- CONTAINER FOR MAP AND DETAIL -->
 <div class="map-detail-row row">
 
+  <!-- BEGIN DETAIL CONTAINER -->
   <div class="detail container col-lg-8"><h3>Detail Container</h3>
     <div class="row">
       <article class="description col-md-12">
@@ -28,25 +30,16 @@
       <article class="description col-md-12">
         <p><%=@campground.detail.orientation_description%></p>
       </article>
-      <ul class="water info-block col-md-4">
-
-      </ul>
     </div>
     <div class="row">
       <article class="description col-md-12">
         <p><%=@campground.detail.recreation_description%></p>
       </article>
-      <ul class="fire info-block col-md-4">
-
-      </ul>
     </div>
     <div class="row">
       <article class="description col-md-12">
         <p><%=@campground.detail.facilities_description%></p>
       </article>
-      <ul class="accessibility info-block col-md-4">
-
-      </ul>
     </div>
     <div class="row">
       <article class="description col-md-12">
@@ -59,48 +52,57 @@
       </article>
     </div>
   </div>
+  <!-- BEGIN MAP CONTAINER -->
   <div class="map container col-lg-4"><h3>Location:</h3>
    <div class="row">
-    <!-- Add a new row for each attribute. col-md-12 will default to filling out the parent container -->
     <div class="col-md-12">
      <div id="map" style='width: 98%; height: 400px;'></div>
      <br>
    </div>
  </div>
- <div class="row">
+ <!-- BEGIN AMENTITIES ROW/CONTAINER -->
+ <div class="row info-block">
    <div class="col-md-6">
-   <ul class="info-block text-center">
+     <div class="text-center">
        <h3>Activities</h3>
-       <%@campground.find_amenity_fun.each do |amenity|%>
-       <li><%=amenity%></li>
-       <%end%>
+       <ul>
+         <%@campground.find_amenity_fun.each do |amenity|%>
+         <li><%=amenity%></li>
+         <%end%>
+       </ul>
        <h3>Water</h3>
-       <%@campground.find_amenity_water.each do |amenity|%>
-       <li><%=amenity%></li>
-       <%end%>
-     </ul>
+       <ul>
+         <%@campground.find_amenity_water.each do |amenity|%>
+         <li><%=amenity%></li>
+         <%end%>
+       </ul>
+     </div>
    </div>
    <div class="col-md-6">
-   <ul class="info-block text-center">
+     <div class="text-center">
        <h3>Fire</h3>
-       <%@campground.find_amenity_fire.each do |amenity|%>
-       <li><%=amenity%></li>
-       <%end%>
+       <ul>
+         <%@campground.find_amenity_fire.each do |amenity|%>
+         <li><%=amenity%></li>
+         <%end%>
+       </ul>
        <h3>Accessibility</h3>
-       <%@campground.find_amenity_accessible.each do |amenity|%>
-       <li><%=amenity%></li>
-       <%end%>
-     </ul>
+       <ul>
+         <%@campground.find_amenity_accessible.each do |amenity|%>
+         <li><%=amenity%></li>
+         <%end%>
+       </ul>
+     </div>
    </div>
  </div>
- <div class="row">
+ <div class="row info-block">
   <div col-md-12>
-  <ul class="info-block text-center">
+    <div class="text-center">
       <h3>General</h3>
       <%@campground.find_amenity_general.each do |amenity|%>
       <li><%=amenity%></li>
       <%end%>
-    </ul>
+    </div>
   </div>
 </div>
 </div>
