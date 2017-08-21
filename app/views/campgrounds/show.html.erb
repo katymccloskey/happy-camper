@@ -1,10 +1,13 @@
 
 <div class="row">
-  <div class="header"><h1 class="text-center"><%= link_to "#{@campground.name}", "#{@campground.detail.reservation_url}"%>    <%if found_favorite(current_user, @campground)%>
+  <div class="header"><h1 class="text-center"><%= link_to "#{@campground.name}", "#{@campground.detail.reservation_url}"%>
+    <%if current_user %>
+    <%if found_favorite(current_user, @campground)%>
     <%= button_to 'Unfavorite', favorite_campground_path(@campground), method: :post, class:"btn btn-info btn-sm" %>
     <%else%>
     <%= button_to 'Favorite', favorite_campground_path(@campground), method: :post, class:"btn btn-info btn-sm" %>
     <% end %></h1>
+    <%end%>
   </div>
 </div>
 
@@ -15,8 +18,10 @@
   </div>
 </div>
 
-
+<!-- CONTAINER FOR MAP AND DETAIL -->
 <div class="map-detail-row row">
+
+  <!-- BEGIN DETAIL CONTAINER -->
   <div class="detail container col-lg-8"><h3>Detail Container</h3>
     <div class="row">
       <article class="description col-md-12">
@@ -40,20 +45,72 @@
     </div>
     <div class="row">
       <article class="description col-md-12">
-        <p><%=@campground.detail.important_info%></p>
+        <h3>Important Info:</h3>
+        <ul>
+          <%@campground.detail.important_info.split("\n").each do |info|%>
+          <li><%=info%></li>
+          <%end%>
+        </ul>
       </article>
     </div>
   </div>
+  <!-- BEGIN MAP CONTAINER -->
   <div class="map container col-lg-4"><h3>Location:</h3>
    <div class="row">
-    <!-- Add a new row for each attribute. col-md-12 will default to filling out the parent container -->
     <div class="col-md-12">
      <div id="map" style='width: 98%; height: 400px;'></div>
      <br>
    </div>
  </div>
+ <!-- BEGIN AMENTITIES ROW/CONTAINER -->
+ <div class="row info-block">
+   <div class="col-md-6">
+     <div class="text-center">
+       <h3>Activities</h3>
+       <ul>
+         <%@campground.find_amenity_fun.each do |amenity|%>
+         <li><%=amenity%></li>
+         <%end%>
+       </ul>
+       <h3>Water</h3>
+       <ul>
+         <%@campground.find_amenity_water.each do |amenity|%>
+         <li><%=amenity%></li>
+         <%end%>
+       </ul>
+     </div>
+   </div>
+   <div class="col-md-6">
+     <div class="text-center">
+       <h3>Fire</h3>
+       <ul>
+         <%@campground.find_amenity_fire.each do |amenity|%>
+         <li><%=amenity%></li>
+         <%end%>
+       </ul>
+       <h3>Accessibility</h3>
+       <ul>
+         <%@campground.find_amenity_accessible.each do |amenity|%>
+         <li><%=amenity%></li>
+         <%end%>
+       </ul>
+     </div>
+   </div>
+ </div>
+ <div class="row info-block">
+  <div col-md-12>
+    <div class="text-center">
+      <h3>General</h3>
+      <%@campground.find_amenity_general.each do |amenity|%>
+      <li><%=amenity%></li>
+      <%end%>
+    </div>
+  </div>
 </div>
+</div>
+
 <h2>put reviews here</h2>
+
 
 </div>
 
