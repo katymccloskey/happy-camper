@@ -7,13 +7,13 @@ class Campground < ApplicationRecord
   has_one :detail
 
   def find_amenity_accessible
-    self.amenities.each do |amenity|
+    self.amenities.select do |amenity|
      amenity.name if amenity.name.downcase.include? "accessible"
-   end
+   end.map{|item| item.name}
  end
 
  def find_amenity_fire
-  self.amenities.each do |amenity|
+  self.amenities.select do |amenity|
     if !amenity.name.downcase.include?("accessible")
      amenity.name if
      amenity.name.downcase.include?("campfire") ||
@@ -21,11 +21,11 @@ class Campground < ApplicationRecord
      amenity.name.downcase.include?("firewood") ||
      amenity.name.downcase.include?("log")
    end
- end
+ end.map{|item| item.name}
 end
 
 def find_amenity_water
-  self.amenities.each do |amenity|
+  self.amenities.select do |amenity|
     if !amenity.name.downcase.include?("accessible")
      amenity.name if
      amenity.name.downcase.include?("water") ||
@@ -34,11 +34,11 @@ def find_amenity_water
      amenity.name.downcase.include?("drinking") ||
      amenity.name.downcase.include?("sink")
    end
- end
+ end.map{|item| item.name}
 end
 
 def find_amenity_fun
-  self.amenities.each do |amenity|
+  self.amenities.select do |amenity|
     if !amenity.name.downcase.include?("accessible")
      amenity.name if
      amenity.name.downcase.include?("horse") ||
@@ -52,11 +52,11 @@ def find_amenity_fun
      amenity.name.downcase.include?("fishing") ||
      amenity.name.downcase.include?("lake")
    end
- end
+ end.map{|item| item.name}
 end
 
 def find_amenity_general
-  self.amenities.each do |amenity|
+  self.amenities.select do |amenity|
     if !amenity.name.downcase.include?("accessible")
       amenity.name if
       amenity.name.downcase.include?("office") ||
@@ -67,6 +67,6 @@ def find_amenity_general
       amenity.name.downcase.include?("cafe") ||
       amenity.name.downcase.include?("visitor")
     end
-  end
+  end.map{|item| item.name}
 end
 end
