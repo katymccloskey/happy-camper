@@ -3,9 +3,6 @@ class CampgroundsController < ApplicationController
   include CampgroundsHelper
 
   def show
-    def sub
-      self.gsub(/&apos;/, "'")
-    end
     @campground = Campground.find(params[:id])
     if @campground.contract_id.length < 4
       redirect_to no_detail_path(@campground)
@@ -21,11 +18,11 @@ class CampgroundsController < ApplicationController
        prime_detail = Detail.create(city: details[0].city.titleize,
         state: details[0].state,
         address: details[0].street_address.titleize,
-        description: parent.description,
-        facilities_description: parent.facilities_description,
-        important_info: parent.important_information,
-        recreation_description: parent.recreation_description,
-        orientation_description: parent.orientation_description,
+        description: parent.description.gsub(/&apos;/, "'"),
+        facilities_description: parent.facilities_description.gsub(/&apos;/, "'"),
+        important_info: parent.important_information.gsub(/&apos;/, "'"),
+        recreation_description: parent.recreation_description.gsub(/&apos;/, "'"),
+        orientation_description: parent.orientation_description.gsub(/&apos;/, "'"),
         reservation_url: parent.full_reservation_url,
         campground: @campground
         )
