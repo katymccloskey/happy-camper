@@ -1,8 +1,8 @@
 
 <div class="row">
   <div class="header"><h1 class="text-center"><%= link_to "#{@campground.name}", "#{@campground.detail.reservation_url}"%>
-      <%if current_user %>
-      <%if found_favorite(current_user, @campground)%>
+    <%if current_user %>
+    <%if found_favorite(current_user, @campground)%>
     <%= button_to 'Unfavorite', favorite_campground_path(@campground), method: :post, class:"btn btn-info btn-sm" %>
     <%else%>
     <%= button_to 'Favorite', favorite_campground_path(@campground), method: :post, class:"btn btn-info btn-sm" %>
@@ -41,10 +41,12 @@
     </div>
     <div class="row">
       <article class="description col-md-12">
-      <h3>Important Info:</h3>
-        <%@campground.detail.important_info.split("\n").each do |info|%>
-        <li><%=info%></li>
-        <%end%>
+        <h3>Important Info:</h3>
+        <ul>
+          <%@campground.detail.important_info.split("\n").each do |info|%>
+          <li><%=info%></li>
+          <%end%>
+        </ul>
       </article>
     </div>
   </div>
