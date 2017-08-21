@@ -18,11 +18,11 @@ class CampgroundsController < ApplicationController
        prime_detail = Detail.create(city: details[0].city.titleize,
         state: details[0].state,
         address: details[0].street_address.titleize,
-        description: parent.description.gsub(/&apos;/, "'"),
-        facilities_description: parent.facilities_description.gsub(/&apos;/, "'"),
-        important_info: parent.important_information.gsub(/&apos;/, "'"),
-        recreation_description: parent.recreation_description.gsub(/&apos;/, "'"),
-        orientation_description: parent.orientation_description.gsub(/&apos;/, "'"),
+        description: parent.description.gsub(/&apos;/, "'").gsub(/&amp;#39;/, ","),
+        facilities_description: parent.facilities_description.gsub(/&apos;/, "'").gsub(/&amp;#39;/, ","),
+        important_info: parent.important_information.gsub(/&apos;/, "'").gsub(/&amp;#39;/, ","),
+        recreation_description: parent.recreation_description.gsub(/&apos;/, "'").gsub(/&amp;#39;/, ","),
+        orientation_description: parent.orientation_description.gsub(/&apos;/, "'").gsub(/&amp;#39;/, ","),
         reservation_url: parent.full_reservation_url,
         campground: @campground
         )
