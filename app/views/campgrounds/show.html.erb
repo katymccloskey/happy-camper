@@ -41,7 +41,10 @@
     </div>
     <div class="row">
       <article class="description col-md-12">
-        <p><%=@campground.detail.important_info%></p>
+      <h3>Important Info:</h3>
+        <%@campground.detail.important_info.split("\n").each do |info|%>
+        <li><%=info%></li>
+        <%end%>
       </article>
     </div>
   </div>
