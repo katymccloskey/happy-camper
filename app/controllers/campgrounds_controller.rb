@@ -1,5 +1,6 @@
 class CampgroundsController < ApplicationController
   def show
+
     @campground = Campground.find(params[:id])
     if @campground.detail.nil?
       details = Supercamp.details.contract_code(@campground.contract_id).id(@campground.facility_id).results
