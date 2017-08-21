@@ -8,7 +8,12 @@
         });
         var marker = new google.maps.Marker({
           position: current,
-          map: map
+          map: map,
+          picture: {
+            url: "https://addons.cdn.mozilla.net/img/uploads/addon_icons/13/13028-64.png",
+            width:  36,
+            height: 36
+          },
         });
 }
 
