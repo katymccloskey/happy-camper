@@ -38,21 +38,7 @@ class CampgroundsController < ApplicationController
 
 
   def index
-
-    if params[:term] == "" || params[:term].nil?
-      @campgrounds = Campground.all
-
-    else
-      term = params[:term].titleize
-      state = CampgroundsHelper::states_list(params[:term].titleize)
-
-      if state
-         @campgrounds = Campground.where('state ILIKE ?', "%#{state}%")
-      else
-         @campgrounds = Campground.where('name ILIKE ?', "%#{term}%")
-      end
-
-    end
+    @campgrounds = Campground.search(params[:term])
 
       @state = @campgrounds.first.state
       @hash = Gmaps4rails.build_markers(@campgrounds) do |campground, marker|

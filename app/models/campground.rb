@@ -84,4 +84,28 @@ def find_amenity_general
   end.map{|item| item.name}
 end
 
+def self.search(term)
+  if term
+      term = term.titleize
+      state = CampgroundsHelper::states_list(term)
+
+      if state
+         @campgrounds = Campground.where('state ILIKE ?', "%#{state}%")
+
+      else
+         @campgrounds = Campground.where('name ILIKE ?', "%#{term}%")
+      end
+
+
+      if @campgrounds.empty?
+        @campgrounds = Campground.all
+      end
+
+    else
+      @campgrounds = Campground.all
+    end
+    return @campgrounds
+
+end
+
 end

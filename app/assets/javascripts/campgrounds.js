@@ -412,6 +412,7 @@
 
     var map = new google.maps.Map(document.getElementById('map'), {
        zoom: 10,
+       styles: mapStyle,
        center: current
         });
         var marker = new google.maps.Marker({
