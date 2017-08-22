@@ -10,25 +10,29 @@ class Campground < ApplicationRecord
   has_one :detail
 
   def google_photos
-   @spots = GOOGLE_CLIENT.spots(self.latitude, self.longitude, name: self.name)
+   @spots = GOOGLE_CLIENT.spots(self.latitude, self.longitude, detail: true)
    # @spot = @spots[0]
+   @urls = []
+   if !@spots.nil?
+     @spots.each do |spot|
+       if !spot.photos.nil?
+         spot.photos.each do |photo|
+           @urls << photo.fetch_url(400)
+         end
+       end
+     end
    binding.pry
-   @spot = GOOGLE_CLIENT.spot(@spots[0].reference)
-   if !@spot.nil?
-    if !@spot.photos[0].nil?
-     @url = @spots[0].photos[0].fetch_url(400)
+    @urls
    end
+  end
+
+   def find_amenity_accessible
+    self.amenities.select do |amenity|
+     amenity.name if amenity.name.downcase.include? "accessible"
+   end.map{|item| item.name}
  end
 
-end
-
-def find_amenity_accessible
-  self.amenities.select do |amenity|
-   amenity.name if amenity.name.downcase.include? "accessible"
- end.map{|item| item.name}
-end
-
-def find_amenity_fire
+ def find_amenity_fire
   self.amenities.select do |amenity|
     if !amenity.name.downcase.include?("accessible")
      amenity.name if

@@ -109,6 +109,9 @@ GEM
     httparty (0.14.0)
       multi_xml (>= 0.5.2)
     i18n (0.8.6)
+    instagram_api (0.0.4)
+      hashie
+      httparty
     jbuilder (2.7.0)
       activesupport (>= 4.2.0)
       multi_json (>= 1.2)
@@ -284,6 +287,7 @@ DEPENDENCIES
   gmaps4rails
   google-places
   google_places
+  instagram_api
   jbuilder (~> 2.5)
   jquery-rails
   listen (>= 3.0.5, < 3.2)
