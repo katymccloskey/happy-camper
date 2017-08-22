@@ -1,5 +1,6 @@
 
-<div class="row">
+<div class="item row">
+<div class="col-md-6">
   <h2>Hello, <%= current_user.name %>!</h2>
   <img class="img-circle" src=<%=current_user.picture %> >
 </div>
@@ -20,3 +21,4 @@
 
 
 <button class="btn"><%= link_to 'Edit Your Profile', edit_user_registration_path %></button>
+</div>

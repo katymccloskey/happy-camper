@@ -20,8 +20,7 @@ gem 'devise'
 gem 'omniauth-google-oauth2'
 gem "mustache", "~> 1.0"
 gem 'google_places'
-gem 'google-places'
-gem 'instagram_api'
+gem 'jquery-ui-rails'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.3'
