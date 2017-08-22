@@ -54,7 +54,11 @@ module CampgroundsHelper
       "Utah" => "UT",
       "Virginia" => "VA",
       "Virgin Islands" => "VI",
-
+      "Vermont" => "VT",
+      "Washington" => "WA",
+      "Wisconsin" => "WI",
+      "West Virginia" => "WV",
+      "Wyoming" => "WY"
     }
 
     if states.has_key?(term)
