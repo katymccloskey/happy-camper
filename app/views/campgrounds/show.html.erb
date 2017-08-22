@@ -11,28 +11,34 @@
   </div>
 
 
-  <div class="container">
+<div class="container">
+  <div class="row">
     <div class="col-md-12">
       <div id="myCarousel" class="carousel slide">
-      <div class="carousel-inner">
+        <div class="carousel-inner">
           <div class="item active">
-            <div class="col-lg-4 col-xs-4 col-md-4 col-sm-4">
-              <a href="#"><img class="d-block img-fluid img-responsive" src=<%="#{@google_urls[0]}"%> alt="First slide"></a>
+            <div class="col-md-12">
+            <img class="img-responsive" src=<%="#{@google_urls[0]}"%> alt="First slide">
             </div>
           </div>
           <% @google_urls.drop(1).each do |url|%>
           <div class="item">
-            <div class="col-lg-4 col-xs-4 col-md-4 col-sm-4">
-              <a href="#"><img class="d-block img-fluid img-responsive" src="<%= url %>" alt="Other slide"></a>
+            <div class="col-md-12">
+              <img class="img-responsive" src="<%= url %>" alt="Other slide">
             </div>
           </div>
           <%end%>
         </div>
+        <a class="left carousel-control" href="#myCarousel" data-slide="prev"><i class="glyphicon glyphicon-chevron-left"></i></a>
+        <a class="right carousel-control" href="#myCarousel" data-slide="next"><i class="glyphicon glyphicon-chevron-right"></i></a>
       </div>
     </div>
   </div>
   <br>
-</div>
+  </div>
+
+<!-- OTHER -->
+
 
 <!-- CONTAINER FOR MAP AND DETAIL -->
 <div class="map-detail-row row">
