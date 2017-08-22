@@ -426,19 +426,10 @@
         });
 }
 
-function autocomplete() {
-     $('#term').on('keyup', function(event) {
-      return $('#term').autocomplete({
-        source: $('#term').data('autocomplete-source'),
-        minLength: 3
-        });
 
-    });
-}
-autocomplete();
 
 $(document).ready(function(){
-    autocomplete();
+
 });
 
 
