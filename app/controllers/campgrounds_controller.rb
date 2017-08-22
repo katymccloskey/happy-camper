@@ -57,6 +57,10 @@ class CampgroundsController < ApplicationController
         end
     end
 
+    if @campgrounds.empty?
+      @campgrounds = Campground.all
+    end
+
       @state = @campgrounds.first.state
       @hash = Gmaps4rails.build_markers(@campgrounds) do |campground, marker|
         marker.lat campground.latitude

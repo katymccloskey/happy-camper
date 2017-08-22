@@ -5,7 +5,7 @@
       <div class="input-group input-group-lg lead" >
        <%= form_tag(@campground_path, method: :get, class:"search-input", placeholder: "Where do you want to go camping?") do %>
           <%= text_field_tag :term, params[:term], data: { autocomplete_source: root_path} %>
-          <%= submit_tag 'Search', name: nil %>
+          <%= submit_tag 'Search', id:"search-button", name: nil %>
         <% end %>
         </span>
       </div>

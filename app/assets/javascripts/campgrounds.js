@@ -428,18 +428,21 @@
 
 
 function autocomplete() {
- $('#term').on('keyup', function(event) {
-    event.preventDefault();
-   return $('#term').autocomplete({
+$("#term").autocomplete({
     source: $('#term').data('autocomplete-source'),
     minLength: 3,
-    messages: {noResults: '', results: ''}
-    });
- });
+    messages: {
+        noResults: '',
+        results: function() {}
+    },
+});
+ $(".ui-helper-hidden-accessible").css({"position": "absolute", "left":"-999em"})
+ $('#term').val('');
 }
 
 $(document).on('turbolinks:load', function() {
     autocomplete();
+
 });
 
 
