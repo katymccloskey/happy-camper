@@ -36,10 +36,25 @@ class CampgroundsController < ApplicationController
  end
 
 
- def index
-  if params[:term]
-    term = params[:term].titleize
-    state = CampgroundsHelper.states_list(params[:term].titleize)
+  def index
+    if params[:term] == "" || params[:term].nil?
+      @campgrounds = Campground.all
+    else
+      term = params[:term].titleize
+      state = CampgroundsHelper::states_list(term)
+
+       if state
+           @campgrounds = Campground.where('state ILIKE ?', "%#{state}%")
+           if request.xhr?
+            render json: @campgrounds.map(&:state).uniq
+           end
+        else
+           @campgrounds = Campground.where('name ILIKE ?', "%#{term}%")
+           if request.xhr?
+            render json: @campgrounds.map(&:name)
+           end
+        end
+    end
 
     @campgrounds = if state
       Campground.where('state ILIKE ?', "%#{state}%")

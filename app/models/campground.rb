@@ -14,7 +14,9 @@ class Campground < ApplicationRecord
     unless @spot.nil?
       @url = @spot.photos[0].fetch_url(350) unless @spot.photos[0].nil?
     end
-  end
+
+  end.map{|item| item.name}
+end
 
   def find_amenity_accessible
     self.amenities.select do |amenity|
