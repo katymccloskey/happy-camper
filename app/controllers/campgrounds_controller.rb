@@ -63,7 +63,10 @@ class CampgroundsController < ApplicationController
       @hash = Gmaps4rails.build_markers(@campgrounds) do |campground, marker|
         marker.lat campground.latitude
         marker.lng campground.longitude
-        marker.infowindow campground.name
+        # binding.pry
+        # marker.infowindow render_to_string(campground.name, campground_path(campground.id))
+        marker.infowindow "<a href=/campgrounds/#{campground.id}>#{campground.name}</a>"
+        # marker.infowindow render(campground.name, campground_path(campground.id))
         marker.picture({
            :url => "http://maps.gstatic.com/mapfiles/ms2/micons/campground.png", # up to you to pass the proper parameters in the url, I guess with a method from device
            :width   => 32,
