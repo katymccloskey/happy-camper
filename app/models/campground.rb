@@ -16,6 +16,7 @@ class Campground < ApplicationRecord
     end
   end
 
+
   def find_amenity_accessible
     self.amenities.select do |amenity|
       amenity.name if amenity.name.downcase.include? 'accessible'
@@ -104,5 +105,4 @@ class Campground < ApplicationRecord
       amenity.name
     end.map(&:name)
   end
-
 end

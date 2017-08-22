@@ -36,6 +36,7 @@ class CampgroundsController < ApplicationController
  end
 
 
+
  def index
   if params[:term] == "" || params[:term].nil?
     @campgrounds = Campground.all
@@ -57,18 +58,18 @@ end
 end
 
 if @campgrounds.empty?
-  @campgrounds = Campground.all
-end
+    @campgrounds = Campground.all
+  end
 
-@state = @campgrounds.first.state
-@hash = Gmaps4rails.build_markers(@campgrounds) do |campground, marker|
-  marker.lat campground.latitude
-  marker.lng campground.longitude
-  marker.infowindow "<a href=/campgrounds/#{campground.id}>#{campground.name}</a>"
-  marker.picture(url: 'http://maps.gstatic.com/mapfiles/ms2/micons/campground.png',
-    width: 25,
-    height: 25)
-end
+  @state = @campgrounds.first.state
+  @hash = Gmaps4rails.build_markers(@campgrounds) do |campground, marker|
+    marker.lat campground.latitude
+    marker.lng campground.longitude
+    marker.infowindow "<a href=/campgrounds/#{campground.id}>#{campground.name}</a>"
+    marker.picture(url: 'http://maps.gstatic.com/mapfiles/ms2/micons/campground.png',
+      width: 25,
+      height: 25)
+  end
 end
 
 def toggle_favorite
