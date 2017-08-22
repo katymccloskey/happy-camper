@@ -71,6 +71,11 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f3f1e5', end
  display: inline-block;
 }
 
+.rounded {
+  border-radius: 10%;
+  box-shadow: 2px 2px 2px gray;
+}
+
 .center-cropped {
   width: 150px;
   height: 150px;
