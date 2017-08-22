@@ -11,14 +11,13 @@
   </div>
 
 
-<div class="container">
-  <div class="row">
+  <div class="container">
     <div class="col-md-12">
       <div id="myCarousel" class="carousel slide">
         <div class="carousel-inner">
           <div class="item active">
             <div class="col-md-12">
-            <img class="img-responsive" src=<%="#{@google_urls[0]}"%> alt="First slide">
+              <img class="img-responsive" src=<%="#{@google_urls[0]}"%> alt="First slide">
             </div>
           </div>
           <% @google_urls.drop(1).each do |url|%>
@@ -33,66 +32,66 @@
         <a class="right carousel-control" href="#myCarousel" data-slide="next"><i class="glyphicon glyphicon-chevron-right"></i></a>
       </div>
     </div>
+    <br>
   </div>
-  <br>
-  </div>
 
-<!-- OTHER -->
+</div>
+  <!-- OTHER -->
 
 
-<!-- CONTAINER FOR MAP AND DETAIL -->
-<div class="map-detail-row row">
+  <!-- CONTAINER FOR MAP AND DETAIL -->
+  <div class="map-detail-row row">
 
-  <!-- BEGIN DETAIL CONTAINER -->
-  <div class="showcase container col-lg-8"><h3>Detail Container</h3>
-    <div class="row">
-      <article class="description col-md-12">
-        <p><%=@campground.detail.description%></p>
-      </article>
+    <!-- BEGIN DETAIL CONTAINER -->
+    <div class="showcase container col-lg-8"><h3>Detail Container</h3>
+      <div class="row">
+        <article class="description col-md-12">
+          <p><%=@campground.detail.description%></p>
+        </article>
+      </div>
+      <div class="row">
+        <article class="description col-md-12">
+          <p><%=@campground.detail.orientation_description%></p>
+        </article>
+      </div>
+      <div class="row">
+        <article class="description col-md-12">
+          <p><%=@campground.detail.recreation_description%></p>
+        </article>
+      </div>
+      <div class="row">
+        <article class="description col-md-12">
+          <p><%=@campground.detail.facilities_description%></p>
+        </article>
+      </div>
+      <div class="row">
+        <article class="description col-md-12">
+          <h3>Important Info:</h3>
+          <ul>
+            <%@campground.detail.important_info.split("\n").each do |info|%>
+            <li><%=info%></li>
+            <%end%>
+          </ul>
+        </article>
+      </div>
     </div>
-    <div class="row">
-      <article class="description col-md-12">
-        <p><%=@campground.detail.orientation_description%></p>
-      </article>
-    </div>
-    <div class="row">
-      <article class="description col-md-12">
-        <p><%=@campground.detail.recreation_description%></p>
-      </article>
-    </div>
-    <div class="row">
-      <article class="description col-md-12">
-        <p><%=@campground.detail.facilities_description%></p>
-      </article>
-    </div>
-    <div class="row">
-      <article class="description col-md-12">
-        <h3>Important Info:</h3>
-        <ul>
-          <%@campground.detail.important_info.split("\n").each do |info|%>
-          <li><%=info%></li>
-          <%end%>
-        </ul>
-      </article>
-    </div>
-  </div>
-  <!-- BEGIN MAP CONTAINER -->
-  <div class="showcase container col-lg-4"><h3>Location:</h3>
+    <!-- BEGIN MAP CONTAINER -->
+    <div class="showcase container col-lg-4"><h3>Location:</h3>
+     <div class="row">
+      <div class="col-md-12">
+       <div id="map" style='width: 100%; height: 400px;'></div>
+       <br>
+     </div>
+   </div>
+
+   <!--AMENTITIES ROW/CONTAINER -->
+   <%= render "campgrounds/amenities" %>
+
    <div class="row">
-    <div class="col-md-12">
-     <div id="map" style='width: 100%; height: 400px;'></div>
-     <br>
+     <h2>put reviews here</h2>
    </div>
  </div>
-
- <!--AMENTITIES ROW/CONTAINER -->
- <%= render "campgrounds/amenities" %>
-
- <div class="row">
-   <h2>put reviews here</h2>
- </div>
-</div>
-<!-- CLOSE MAP-DETAIL CONTAINER -->
+ <!-- CLOSE MAP-DETAIL CONTAINER -->
 </div>
 
 
