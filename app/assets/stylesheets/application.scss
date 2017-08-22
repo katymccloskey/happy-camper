@@ -21,6 +21,7 @@ html, body {
 
 html, body{
 font-family: 'Encode Sans', sans-serif;
+  background: #C8D6AF;
 }
 
 #map {
@@ -49,15 +50,17 @@ font-family: 'Encode Sans', sans-serif;
 }
 
 .container {
-  box-shadow: 2px 2px 2px 2px gray;
-  border-radius: 5px;
-  background: #f3f1e5; /* Old browsers */
+}
+
+.item {
+background: #f3f1e5; /* Old browsers */
 background: -moz-linear-gradient(top, #f3f1e5 0%, #efeddf 40%, #eae7d6 100%); /* FF3.6-15 */
 background: -webkit-linear-gradient(top, #f3f1e5 0%,#efeddf 40%,#eae7d6 100%); /* Chrome10-25,Safari5.1-6 */
 background: linear-gradient(to bottom, #f3f1e5 0%,#efeddf 40%,#eae7d6 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f3f1e5', endColorstr='#eae7d6',GradientType=0 ); /* IE6-9 */
+  box-shadow: 2px 2px 2px 2px gray;
+  border-radius: 5px;
 }
-
 .center-cropper-title {
   width: 100px;
   height: 100px;
@@ -76,7 +79,8 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f3f1e5', end
 }
 
 .info-block {
-  background-color: gainsboro;
+  color: #305C36;
+  text-shadow: 2px 2px 2px gray;
 }
 
 .each-campground-list{
@@ -90,3 +94,92 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f3f1e5', end
   height: 450px;
 }
 
+.navbar-default {
+  background-color: #f3f1e5;
+  border-color: #c8d6af;
+}
+.navbar-default .navbar-brand {
+  color: #305c36;
+}
+.navbar-default .navbar-brand:hover,
+.navbar-default .navbar-brand:focus {
+  color: #305c36;
+}
+.navbar-default .navbar-text {
+  color: #305c36;
+}
+.navbar-default .navbar-nav > li > a {
+  color: #305c36;
+}
+.navbar-default .navbar-nav > li > a:hover,
+.navbar-default .navbar-nav > li > a:focus {
+  color: #305c36;
+}
+.navbar-default .navbar-nav > li > .dropdown-menu {
+  background-color: #f3f1e5;
+}
+.navbar-default .navbar-nav > li > .dropdown-menu > li > a {
+  color: #305c36;
+}
+.navbar-default .navbar-nav > li > .dropdown-menu > li > a:hover,
+.navbar-default .navbar-nav > li > .dropdown-menu > li > a:focus {
+  color: #305c36;
+  background-color: #c8d6af;
+}
+.navbar-default .navbar-nav > li > .dropdown-menu > li.divider {
+  background-color: #c8d6af;
+}
+.navbar-default .navbar-nav .open .dropdown-menu > .active > a,
+.navbar-default .navbar-nav .open .dropdown-menu > .active > a:hover,
+.navbar-default .navbar-nav .open .dropdown-menu > .active > a:focus {
+  color: #305c36;
+  background-color: #c8d6af;
+}
+.navbar-default .navbar-nav > .active > a,
+.navbar-default .navbar-nav > .active > a:hover,
+.navbar-default .navbar-nav > .active > a:focus {
+  color: #305c36;
+  background-color: #c8d6af;
+}
+.navbar-default .navbar-nav > .open > a,
+.navbar-default .navbar-nav > .open > a:hover,
+.navbar-default .navbar-nav > .open > a:focus {
+  color: #305c36;
+  background-color: #c8d6af;
+}
+.navbar-default .navbar-toggle {
+  border-color: #c8d6af;
+}
+.navbar-default .navbar-toggle:hover,
+.navbar-default .navbar-toggle:focus {
+  background-color: #c8d6af;
+}
+.navbar-default .navbar-toggle .icon-bar {
+  background-color: #305c36;
+}
+.navbar-default .navbar-collapse,
+.navbar-default .navbar-form {
+  border-color: #305c36;
+}
+.navbar-default .navbar-link {
+  color: #305c36;
+}
+.navbar-default .navbar-link:hover {
+  color: #305c36;
+}
+
+@media (max-width: 767px) {
+  .navbar-default .navbar-nav .open .dropdown-menu > li > a {
+    color: #305c36;
+  }
+  .navbar-default .navbar-nav .open .dropdown-menu > li > a:hover,
+  .navbar-default .navbar-nav .open .dropdown-menu > li > a:focus {
+    color: #305c36;
+  }
+  .navbar-default .navbar-nav .open .dropdown-menu > .active > a,
+  .navbar-default .navbar-nav .open .dropdown-menu > .active > a:hover,
+  .navbar-default .navbar-nav .open .dropdown-menu > .active > a:focus {
+    color: #305c36;
+    background-color: #c8d6af;
+  }
+}
