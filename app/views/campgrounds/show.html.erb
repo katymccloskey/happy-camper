@@ -12,7 +12,9 @@
 
   <div class="pictures container col-md-12">
     <div class="text-center">
-      <img class="img-fluid rounded" src=<%= "#{@place_stuff}" %>>
+    <% @google_urls.each do |url |%>
+      <img class="img-fluid rounded" src="<%= url %>">
+      <% end %>
     </div>
     <br>
   </div>
