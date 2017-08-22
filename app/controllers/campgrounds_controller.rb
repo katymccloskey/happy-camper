@@ -34,11 +34,9 @@ class CampgroundsController < ApplicationController
      @show = {lat:@campground.latitude,lng:@campground.longitude,name:@campground.name,city:@campground.detail.city,state:@campground.state}.to_json
    end
  end
- @show = { lat: @campground.latitude, lng: @campground.longitude, name: @campground.name, city: @campground.detail.city, state: @campground.state }.to_json
-end
-end
 
-def index
+
+ def index
   if params[:term]
     term = params[:term].titleize
     state = CampgroundsHelper.states_list(params[:term].titleize)
