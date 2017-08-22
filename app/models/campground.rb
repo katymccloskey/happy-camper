@@ -12,7 +12,7 @@ class Campground < ApplicationRecord
     @spots = GOOGLE_CLIENT.spots(self.latitude, self.longitude, name: self.name)
     @spot = @spots[0]
     unless @spot.nil?
-      @url = @spot.photos[0].fetch_url(400) unless @spot.photos[0].nil?
+      @url = @spot.photos[0].fetch_url(350) unless @spot.photos[0].nil?
     end
 
   end.map{|item| item.name}

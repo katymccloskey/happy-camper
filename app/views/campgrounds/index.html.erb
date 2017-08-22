@@ -3,22 +3,17 @@
   <form class="search-submit img-overlay text-center"  action="/" method="get">
     <div class="search ">
       <div class="input-group input-group-lg lead" >
-       <%= form_tag(@campground_path, method: :get, class:"search-input", placeholder: "Where do you want to go camping?") do %>
-          <%= text_field_tag :term, params[:term], data: { autocomplete_source: root_path} %>
-          <%= submit_tag 'Search', id:"search-button", name: nil %>
+       <%= form_tag(@campgrounds_path, method: :get) do %>
+        <%= text_field_tag :term, params[:term], placeholder: "Search for camp:", class:"search-input form-inline" %>
+        <%= submit_tag 'Search', name: nil %>
         <% end %>
-        </span>
-      </div>
+      </span>
     </div>
-  </form>
-</div>
-
-
+  </div>
+</form>
 
 <div>
-  <div class="row item">
-    <div class="col-md-8">
-
+  <div class="col-md-8">
     <div id="map"></div>
       <script>
         handler = Gmaps.build('Google');
@@ -39,6 +34,6 @@
     </div>
   </div>
 </div>
-
+</div>
 
 
