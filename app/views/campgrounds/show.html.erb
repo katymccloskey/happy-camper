@@ -66,33 +66,30 @@
  <div class="row info-block">
    <h1>Features</h1>
    <div class="col-md-12">
-     <div class="text-center">
-       <h3>Fun</h3>
-       <%if !@campground.find_amenity_fun.empty?%>
-       <li><%=amenity%></li>
+       <%if !@campground.find_amenity_trails.empty?%>
+       <i class="fa fa-icon-leaf" aria-hidden="true"></i>
        <%end%>
-     </div>
-     <div class="text-center">
+       <%if !@campground.find_amenity_views.empty?%>
+       <i class="fa fa-icon-binoculars" aria-hidden="true"></i>
+       <%end%>
+       <%if !@campground.find_amenity_water_sports.empty?%>
+       <i class="fa fa-boat"></i>
+       <%end%>
        <%if !@campground.find_amenity_water.empty?%>
-       <i class="fa fa-waterdrop"></i>
+       <i class="fa fa-waterdrop" aria-hidden="true"></i>
        <%end%>
-     </div>
-     <div class="text-center">
-       <h3>FIRE</h3>
        <%if !@campground.find_amenity_fire.empty?%>
        <i class="fa fa-fire" aria-hidden="true"></i>
        <%end%>
-     </div>
-     <div class="text-center">
-       <%if !@campground.find_amenity_accessible.nil?%>
+       <%if !@campground.find_amenity_accessible.empty?%>
        <i class="fa fa-wheelchair" aria-hidden="true"></i>
        <%end%>
-     </div>
-     <div class="text-center">
+       <%if !@campground.find_amenity_community.empty? %>
+       <i class="fa fa-people" aria-hidden="true"></i>
+       <%end%>
        <%if !@campground.find_amenity_general.empty? %>
        <i class="fa fa-house" aria-hidden="true"></i>
        <%end%>
-     </div>
    </div>
  </div>
  <div class="row">
