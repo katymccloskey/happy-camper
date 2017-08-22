@@ -62,41 +62,10 @@
      <br>
    </div>
  </div>
- <!-- BEGIN AMENTITIES ROW/CONTAINER -->
- <div class="row info-block">
-   <div class="col-md-12">
-       <%if !@campground.find_amenity_trails.empty?%>
-       <i class="fa-2x fa-fw fa fa-leaf" title="Trails Available!" aria-hidden="true"></i>
-       <%end%>
-       <%if !@campground.find_amenity_views.empty?%>
-       <i class="fa-2x fa-fw fa fa-binoculars" title="Views Available!"aria-hidden="true"></i>
-       <%end%>
-       <%if !@campground.find_amenity_water_sports.empty?%>
-       <i class="fa-2x fa-fw fa fa-ship" title="Water Recreation!"aria-hidden="true"></i>
-       <%end%>
-       <%if !@campground.find_amenity_water.empty? || @campground.sewage == "Y"%>
-       <i class="fa-2x fa-fw fa fa-tint" title="Water/Sewage Hookups!"aria-hidden="true"></i>
-       <%end%>
-       <%if !@campground.find_amenity_fire.empty?%>
-       <i class="fa-2x fa-fw fa fa-fire" title="Fire Pits/Logs!" aria-hidden="true"></i>
-       <%end%>
-       <%if !@campground.find_amenity_accessible.empty?%>
-       <i class="fa-2x fa-fw fa fa-wheelchair" title="Accessibility Features!" aria-hidden="true"></i>
-       <%end%>
-       <%if !@campground.find_amenity_community.empty?%>
-       <i class="fa-2x fa-fw fa fa-users" title="Community Events!" aria-hidden="true"></i>
-       <%end%>
-       <%if !@campground.find_amenity_general.empty?%>
-       <i class="fa-2x fa-fw fa fa-house" title="Stores Nearby!" aria-hidden="true"></i>
-       <%end%>
-       <%if @campground.pets == "Y"%>
-       <i class="fa-2x fa-fw fa fa-paw" title="Pets Allowed!"></i>
-       <%end%>
-       <%if @campground.amps == "Y"%>
-       <i class="fa-2x fa-fw fa fa-bolt" title="Amp Hookups!"></i>
-       <%end%>
-   </div>
- </div>
+
+ <!--AMENTITIES ROW/CONTAINER -->
+ <%= render "campgrounds/amenities" %>
+
  <div class="row">
    <h2>put reviews here</h2>
  </div>
