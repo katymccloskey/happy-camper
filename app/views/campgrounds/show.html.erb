@@ -15,7 +15,7 @@
   <div class="pictures container"><h1 class="text-center">
     <img src=<%= "#{@place_stuff}" %>>
   </h1>
-  </div>
+</div>
 </div>
 
 <!-- CONTAINER FOR MAP AND DETAIL -->
@@ -64,54 +64,53 @@
  </div>
  <!-- BEGIN AMENTITIES ROW/CONTAINER -->
  <div class="row info-block">
-   <div class="col-md-6">
+   <h1>Features</h1>
+   <div class="col-md-2">
      <div class="text-center">
-       <h3>Activities</h3>
-       <ul>
-         <%@campground.find_amenity_fun.each do |amenity|%>
-         <li><%=amenity%></li>
-         <%end%>
-       </ul>
-       <h3>Water</h3>
-       <ul>
-         <%@campground.find_amenity_water.each do |amenity|%>
-         <li><%=amenity%></li>
-         <%end%>
-       </ul>
+       <h3>Fun</h3>
+       <%@campground.find_amenity_fun.each do |amenity|%>
+       <li><%=amenity%></li>
+       <%end%>
      </div>
    </div>
-   <div class="col-md-6">
+   <div class="col-md-2">
      <div class="text-center">
-       <h3>Fire</h3>
-       <ul>
-         <%@campground.find_amenity_fire.each do |amenity|%>
-         <li><%=amenity%></li>
-         <%end%>
-       </ul>
+       <h3>Water</h3>
+       <%@campground.find_amenity_water.each do |amenity|%>
+       <li><%=amenity%></li>
+       <%end%>
+     </div>
+   </div>
+   <div class="col-md-2">
+     <div class="text-center">
+       <h3>FIRE</h3>
+       <%@campground.find_amenity_fire.each do |amenity|%>
+       <li><%=amenity%></li>
+       <%end%>
+     </div>
+   </div>
+   <div class="col-md-2">
+     <div class="text-center">
        <h3>Accessibility</h3>
-       <ul>
-         <%@campground.find_amenity_accessible.each do |amenity|%>
-         <li><%=amenity%></li>
-         <%end%>
-       </ul>
+       <%@campground.find_amenity_accessible.each do |amenity|%>
+       <li><%=amenity%></li>
+       <%end%>
+     </div>
+   </div>
+   <div class="col-md-2">
+     <div class="text-center">
+       <h3>General</h3>
+       <%@campground.find_amenity_general.each do |amenity|%>
+       <li><%=amenity%></li>
+       <%end%>
      </div>
    </div>
  </div>
- <div class="row info-block">
-  <div col-md-12>
-    <div class="text-center">
-      <h3>General</h3>
-      <%@campground.find_amenity_general.each do |amenity|%>
-      <li><%=amenity%></li>
-      <%end%>
-    </div>
-  </div>
+ <div class="row">
+   <h2>put reviews here</h2>
+ </div>
 </div>
-</div>
-
-<h2>put reviews here</h2>
-
-
+<!-- CLOSE MAP-DETAIL CONTAINER -->
 </div>
 
 
