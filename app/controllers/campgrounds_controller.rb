@@ -37,46 +37,38 @@ class CampgroundsController < ApplicationController
 
 
  def index
-  if params[:term]
-    term = params[:term].titleize
-    state = CampgroundsHelper.states_list(params[:term].titleize)
-
-    @campgrounds = if state
-      Campground.where('state ILIKE ?', "%#{state}%")
-
-    else
-      Campground.where('name ILIKE ?', "%#{term}%")
-    end
-
-    @campgrounds = Campground.all if @campgrounds.empty?
-
-  else
+  if params[:term] == "" || params[:term].nil?
     @campgrounds = Campground.all
-  end
+  else
+    term = params[:term].titleize
+    state = CampgroundsHelper::states_list(term)
 
-  @state = @campgrounds.first.state
-  @hash = Gmaps4rails.build_markers(@campgrounds) do |campground, marker|
-    marker.lat campground.latitude
-    marker.lng campground.longitude
-    marker.infowindow "<a href=/campgrounds/#{campground.id}>#{campground.name}</a>"
-    marker.picture(url: 'http://maps.gstatic.com/mapfiles/ms2/micons/campground.png',
-      width: 25,
-      height: 25)
+    if state
+     @campgrounds = Campground.where('state ILIKE ?', "%#{state}%")
+     if request.xhr?
+      render json: @campgrounds.map(&:state).uniq
+    end
+  else
+   @campgrounds = Campground.where('name ILIKE ?', "%#{term}%")
+   if request.xhr?
+    render json: @campgrounds.map(&:name)
   end
-  @campgrounds = Campground.search(params[:term])
+end
+end
 
-  @state = @campgrounds.first.state
-  @hash = Gmaps4rails.build_markers(@campgrounds) do |campground, marker|
-    marker.lat campground.latitude
-    marker.lng campground.longitude
-    marker.infowindow "<a href=/campgrounds/#{campground.id}>#{campground.name}</a>"
-    marker.picture({
-     :url => "http://maps.gstatic.com/mapfiles/ms2/micons/campground.png",
-     :width   => 25,
-     :height  => 25
-     })
+if @campgrounds.empty?
+  @campgrounds = Campground.all
+end
 
-  end
+@state = @campgrounds.first.state
+@hash = Gmaps4rails.build_markers(@campgrounds) do |campground, marker|
+  marker.lat campground.latitude
+  marker.lng campground.longitude
+  marker.infowindow "<a href=/campgrounds/#{campground.id}>#{campground.name}</a>"
+  marker.picture(url: 'http://maps.gstatic.com/mapfiles/ms2/micons/campground.png',
+    width: 25,
+    height: 25)
+end
 end
 
 def toggle_favorite
