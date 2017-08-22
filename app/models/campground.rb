@@ -12,17 +12,19 @@ class Campground < ApplicationRecord
   def google_photos
    @spots = GOOGLE_CLIENT.spots(self.latitude, self.longitude, name: self.name)
    @spot = @spots[0]
-   @url = @spot.photos[0].fetch_url(400)
+   if !@spot.nil?
+     @url = @spot.photos[0].fetch_url(400)
+   end
 
-  end
-
-  def find_amenity_accessible
-    self.amenities.select do |amenity|
-     amenity.name if amenity.name.downcase.include? "accessible"
-   end.map{|item| item.name}
  end
 
- def find_amenity_fire
+ def find_amenity_accessible
+  self.amenities.select do |amenity|
+   amenity.name if amenity.name.downcase.include? "accessible"
+ end.map{|item| item.name}
+end
+
+def find_amenity_fire
   self.amenities.select do |amenity|
     if !amenity.name.downcase.include?("accessible")
      amenity.name if
