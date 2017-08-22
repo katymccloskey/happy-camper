@@ -14,9 +14,8 @@ class Campground < ApplicationRecord
     unless @spot.nil?
       @url = @spot.photos[0].fetch_url(350) unless @spot.photos[0].nil?
     end
+  end
 
-  end.map{|item| item.name}
-end
 
   def find_amenity_accessible
     self.amenities.select do |amenity|
@@ -106,28 +105,4 @@ end
       amenity.name
     end.map(&:name)
   end
-
-  def self.search(term)
-    if term
-      term = term.titleize
-      state = CampgroundsHelper::states_list(term)
-
-      if state
-       @campgrounds = Campground.where('state ILIKE ?', "%#{state}%")
-
-     else
-       @campgrounds = Campground.where('name ILIKE ?', "%#{term}%")
-     end
-
-
-     if @campgrounds.empty?
-      @campgrounds = Campground.all
-    end
-
-  else
-    @campgrounds = Campground.all
-  end
-  return @campgrounds
-
-end
 end

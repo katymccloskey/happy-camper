@@ -4,7 +4,7 @@
     <div class="search ">
       <div class="input-group input-group-lg lead" >
        <%= form_tag(@campgrounds_path, method: :get) do %>
-        <%= text_field_tag :term, params[:term], placeholder: "Search for camp:", class:"search-input form-inline" %>
+        <%= text_field_tag :term, params[:term], placeholder: "Search for camp:", class:"search-input form-inline", data: {autocomplete_source: root_path} %>
         <%= submit_tag 'Search', name: nil %>
         <% end %>
       </span>
