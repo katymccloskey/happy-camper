@@ -9,7 +9,7 @@ class Campground < ApplicationRecord
   has_one :detail
 
   def google_photos
-   @spots = GOOGLE_CLIENT.spots(self.latitude, self.longitude, detail: true)
+    @spots = GOOGLE_CLIENT.spots(self.latitude, self.longitude)
    # @spot = @spots[0]
    @urls = []
    if !@spots.nil?

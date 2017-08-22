@@ -1,5 +1,5 @@
 
-<div class="item row">
+<div class="showcase row">
   <div class="header"><h1 class="text-center"><%= link_to "#{@campground.name}", "#{@campground.detail.reservation_url}"%>
     <%if current_user %>
     <%if found_favorite(current_user, @campground)%>
@@ -10,20 +10,35 @@
     <%end%>
   </div>
 
-  <div class="pictures container col-md-12">
-    <div class="text-center">
-    <% @google_urls.each do |url |%>
-      <img class="img-fluid rounded" src="<%= url %>">
-      <% end %>
+
+  <div class="container">
+    <div class="col-md-12">
+      <div id="myCarousel" class="carousel slide">
+      <div class="carousel-inner">
+          <div class="item active">
+            <div class="col-lg-4 col-xs-4 col-md-4 col-sm-4">
+              <a href="#"><img class="d-block img-fluid img-responsive" src=<%="#{@google_urls[0]}"%> alt="First slide"></a>
+            </div>
+          </div>
+          <% @google_urls.drop(1).each do |url|%>
+          <div class="item">
+            <div class="col-lg-4 col-xs-4 col-md-4 col-sm-4">
+              <a href="#"><img class="d-block img-fluid img-responsive" src="<%= url %>" alt="Other slide"></a>
+            </div>
+          </div>
+          <%end%>
+        </div>
+      </div>
     </div>
-    <br>
   </div>
+  <br>
 </div>
+
 <!-- CONTAINER FOR MAP AND DETAIL -->
 <div class="map-detail-row row">
 
   <!-- BEGIN DETAIL CONTAINER -->
-  <div class="item container col-lg-8"><h3>Detail Container</h3>
+  <div class="showcase container col-lg-8"><h3>Detail Container</h3>
     <div class="row">
       <article class="description col-md-12">
         <p><%=@campground.detail.description%></p>
@@ -56,7 +71,7 @@
     </div>
   </div>
   <!-- BEGIN MAP CONTAINER -->
-  <div class="item container col-lg-4"><h3>Location:</h3>
+  <div class="showcase container col-lg-4"><h3>Location:</h3>
    <div class="row">
     <div class="col-md-12">
      <div id="map" style='width: 100%; height: 400px;'></div>
