@@ -427,9 +427,19 @@
 }
 
 
+function autocomplete() {
+ $('#term').on('keyup', function(event) {
+    event.preventDefault();
+   return $('#term').autocomplete({
+    source: $('#term').data('autocomplete-source'),
+    minLength: 3,
+    messages: {noResults: '', results: ''}
+    });
+ });
+}
 
-$(document).ready(function(){
-
+$(document).on('turbolinks:load', function() {
+    autocomplete();
 });
 
 
