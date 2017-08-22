@@ -15,7 +15,7 @@ class CampgroundsController < ApplicationController
 
         details.each do |detail|
          @campground.amenities << Amenity.find_or_create_by(name: detail[:name]) if detail[:distance] && detail[:name]
-       end
+        end
 
        prime_detail = Detail.create(city: details[0].city.titleize,
         # Gsub madness
@@ -30,11 +30,11 @@ class CampgroundsController < ApplicationController
         reservation_url: parent.full_reservation_url,
         campground: @campground
         )
-     end
+      end
 
      @show = {lat:@campground.latitude,lng:@campground.longitude,name:@campground.name,city:@campground.detail.city,state:@campground.state}.to_json
-   end
- end
+    end
+  end
 
 
   def index
@@ -50,25 +50,26 @@ class CampgroundsController < ApplicationController
            :width   => 25,
            :height  => 25
          })
+
       end
 
-end
-
-def toggle_favorite
-  @campground = Campground.find(params[:id])
-  @user = current_user
-  if found_favorite(@user, @campground)
-    found_favorite(@user, @campground).destroy
-    redirect_to @campground
-  else
-    @user.favorites.create(campground: @campground, user: @user)
-    redirect_to @campground
   end
-end
 
-def no_detail
-  @campground = Campground.find(params[:id])
-end
+  def toggle_favorite
+    @campground = Campground.find(params[:id])
+    @user = current_user
+    if found_favorite(@user, @campground)
+      found_favorite(@user, @campground).destroy
+      redirect_to @campground
+    else
+      @user.favorites.create(campground: @campground, user: @user)
+      redirect_to @campground
+    end
+  end
+
+  def no_detail
+    @campground = Campground.find(params[:id])
+  end
 
   def campground_params
     params.require(:campgruond).permit(:name, :state)
