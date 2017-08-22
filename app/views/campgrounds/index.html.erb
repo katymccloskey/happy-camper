@@ -3,15 +3,10 @@
   <form class="search-submit img-overlay text-center"  action="/" method="get">
     <div class="search ">
       <div class="input-group input-group-lg lead" >
-       <!--  <input type="text" id="search-input" class="searchTerm form-control " placeholder="Where do you want to go camping?">
-       <span class="input-group-btn "> -->
        <%= form_tag(@campgrounds_path, method: :get) do %>
         <%= text_field_tag :term, params[:term], placeholder: "Search for camp:", class:"search-input form-inline" %>
         <%= submit_tag 'Search', name: nil %>
         <% end %>
-        <!-- <button type="submit" class="btn btn-lg  "> -->
-        <!-- <i class="fa fa-search"></i> -->
-        <!-- </button> -->
       </span>
     </div>
   </div>
