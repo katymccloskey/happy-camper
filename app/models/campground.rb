@@ -11,10 +11,12 @@ class Campground < ApplicationRecord
 
   def google_photos
    @spots = GOOGLE_CLIENT.spots(self.latitude, self.longitude, name: self.name)
-   @spot = @spots[0]
+   # @spot = @spots[0]
+   binding.pry
+   @spot = GOOGLE_CLIENT.spot(@spots[0].reference)
    if !@spot.nil?
     if !@spot.photos[0].nil?
-     @url = @spot.photos[0].fetch_url(400)
+     @url = @spots[0].photos[0].fetch_url(400)
    end
  end
 
