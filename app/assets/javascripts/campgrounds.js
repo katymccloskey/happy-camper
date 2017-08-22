@@ -13,7 +13,7 @@
         "elementType": "all",
         "stylers": [
             {
-                "visibility": "off"
+                "visibility": "on"
             }
         ]
     },
@@ -40,7 +40,7 @@
         "elementType": "labels",
         "stylers": [
             {
-                "visibility": "off"
+                "visibility": "on"
             }
         ]
     },
@@ -426,7 +426,22 @@
         });
 }
 
-$(document).ready(function(){
+
+function autocomplete() {
+$("#term").autocomplete({
+    source: $('#term').data('autocomplete-source'),
+    minLength: 3,
+    messages: {
+        noResults: '',
+        results: function() {}
+    },
+});
+ $(".ui-helper-hidden-accessible").css({"position": "absolute", "left":"-999em"})
+ $('#term').val('');
+}
+
+$(document).on('turbolinks:load', function() {
+    autocomplete();
 
 });
 

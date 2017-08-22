@@ -63,6 +63,8 @@ module CampgroundsHelper
 
     if states.has_key?(term)
       return states[term]
+    elsif states.has_value?(term.upcase)
+      return term
     end
 
   end

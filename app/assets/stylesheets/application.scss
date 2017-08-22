@@ -94,6 +94,30 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f3f1e5', end
   height: 450px;
 }
 
+
+ul.ui-autocomplete {
+  position: absolute;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  cursor: default;
+  li {
+    background-color: #FFF;
+    border-top: solid 1px #DDD;
+    margin: 0;
+    padding: 10px;
+    a {
+      color: #000;
+      display: block;
+      padding: 3px;
+    }
+    a.ui-state-hover, a.ui-state-active {
+      background-color: #FFFCB2;
+    }
+  }
+}
+
+
 .navbar-default {
   background-color: #f3f1e5;
   border-color: #c8d6af;
@@ -183,3 +207,4 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f3f1e5', end
     background-color: #c8d6af;
   }
 }
+
