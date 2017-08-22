@@ -51,20 +51,52 @@ def find_amenity_water
  end.map{|item| item.name}
 end
 
-def find_amenity_fun
+def find_amenity_water_sports
+  self.amenities.select do |amenity|
+    if !amenity.name.downcase.include?("accessible")
+     amenity.name if
+     amenity.name.downcase.include?("kayak") ||
+     amenity.name.downcase.include?("boat") ||
+     amenity.name.downcase.include?("rafting") ||
+     amenity.name.downcase.include?("fishing") ||
+     amenity.name.downcase.include?("river") ||
+     amenity.name.downcase.include?("lake")
+   end
+ end.map{|item| item.name}
+end
+
+def find_amenity_trails
   self.amenities.select do |amenity|
     if !amenity.name.downcase.include?("accessible")
      amenity.name if
      amenity.name.downcase.include?("horse") ||
      amenity.name.downcase.include?("bike") ||
-     amenity.name.downcase.include?("kayak") ||
-     amenity.name.downcase.include?("boat") ||
+     amenity.name.donwcase.include?("hike") ||
+     amenity.name.donwcase.include?("trail")
+   end
+ end.map{|item| item.name}
+end
+
+def find_amenity_community
+  self.amenities.select do |amenity|
+    if !amenity.name.downcase.include?("accessible")
+     amenity.name if
+     amenity.name.downcase.include?("theater") ||
+     amenity.name.downcase.include?("play") ||
+     amenity.name.downcase.include?("community") ||
+   end
+ end.map{|item| item.name}
+end
+
+def find_amenity_views
+  self.amenities.select do |amenity|
+    if !amenity.name.downcase.include?("accessible")
+     amenity.name if
      amenity.name.downcase.include?("bird") ||
      amenity.name.downcase.include?("view") ||
-     amenity.name.downcase.include?("rafting") ||
-     amenity.name.downcase.include?("theater") ||
-     amenity.name.downcase.include?("fishing") ||
-     amenity.name.downcase.include?("lake")
+     amenity.name.downcase.include?("landscape") ||
+     amenity.name.downcase.include?("scenic") ||
+     amenity.name.downcase.include?("scene")
    end
  end.map{|item| item.name}
 end
