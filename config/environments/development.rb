@@ -53,7 +53,7 @@ Rails.application.configure do
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
 
 end
-
+  # hack for geocoder location in development env
   class ActionDispatch::Request
     def remote_ip
       "38.140.212.66"
