@@ -72,25 +72,43 @@
             <%end%>
           </ul>
         </article>
+
+      </div>
+
+      <!-- REVIEWS STUFF-->
+      <div class="row">
+        <div class="col-md-12"  id="reviews-container">
+          <div class="row">
+          <% @campground.reviews.each_with_index do |review, index| %>
+            <% if index < 3 %>
+              <div class="col-md-4">
+                <p>"<%= truncate(review, length: 120) %>"</p>
+                <span style="display:none">"<%= review %>"</span>
+              </div>
+            <% else %>
+              <div class="col-md-4 hidden">
+                <span>"<%= review %>"</span>
+              </div>
+            <% end %>
+          <%end%>
+        </div>
+        <button class='btn' id="show-reviews">See All reviews</button>
       </div>
     </div>
+
     <!-- BEGIN MAP CONTAINER -->
     <div class="showcase container col-lg-4"><h3>Location:</h3>
      <div class="row">
       <div class="col-md-12">
        <div id="map" style='width: 100%; height: 400px;'></div>
        <br>
-     </div>
-   </div>
+      </div>
+    </div>
 
    <!--AMENTITIES ROW/CONTAINER -->
    <%= render "campgrounds/amenities" %>
 
-   <div class="row">
-   <% @campground.reviews.each do |review| %>
-   <p><%=review %></p>
-   <%end%>
-   </div>
+
  </div>
  <!-- CLOSE MAP-DETAIL CONTAINER -->
 </div>

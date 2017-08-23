@@ -9,12 +9,12 @@ font-family: 'Encode Sans', sans-serif;
 }
 
 #myCarousel img {
-width: auto;
-height: 300px;
-max-height: 300px;
-margin: auto;
-border-radius: 10%;
-box-shadow: 2px 2px 2px gray;
+  width: auto;
+  height: 300px;
+  max-height: 300px;
+  margin: auto;
+  border-radius: 10%;
+  box-shadow: 2px 2px 2px gray;
 }
 
 #map {
@@ -25,24 +25,20 @@ box-shadow: 2px 2px 2px gray;
 }
 
 .iframe-container{
-    position: relative;
-    width: 100%;
-    padding-bottom: 56.25%; /* Ratio 16:9 ( 100%/16*9 = 56.25% ) */
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%; /* Ratio 16:9 ( 100%/16*9 = 56.25% ) */
 }
 .iframe-container > *{
-
-
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    margin: 0;
-    padding: 0;
-    height: 100%;
-    width: 100%;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
 }
-
-
 
 .showcase {
 background: #f3f1e5; /* Old browsers */
@@ -115,6 +111,35 @@ ul.ui-autocomplete {
     }
   }
 }
+
+/* REVIEW STYLING*/
+a {
+  color: #0254EB
+}
+a:visited {
+  color: #0254EB
+}
+a.morelink {
+  text-decoration:none;
+  outline: none;
+}
+.morecontent span {
+  display: none;
+}
+.comment {
+  width: 400px;
+  background-color: #f0f0f0;
+  margin: 10px;
+}
+
+
+
+/*#reviews-container {
+    height:150px;
+    line-height:20px;  Height / no. of lines to display
+    overflow:hidden;
+}*/
+
 
 /*------------BEGIN NAVBAR AND CAROUSEL CUSTOMIZATION-------------------*/
 
