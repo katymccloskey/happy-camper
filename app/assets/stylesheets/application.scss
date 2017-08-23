@@ -24,9 +24,13 @@ color: #558C8C;
 letter-spacing: 2px;
 }
 
+a:hover {
+    color: #E37C36;
+}
+
 h1, h2, h3 {
   font-weight: bold;
-  background-color: #1A351D;
+  background-color: #294444;
   -webkit-background-clip: text;
   -moz-background-clip: text;
   background-clip: text;
@@ -175,7 +179,7 @@ ul.ui-autocomplete {
 $bgDefault      : #f2f0e3;
 $bgHighlight    : #ddd89a;
 $colDefault     : #807b49;
-$colHighlight   : #558c8c;
+$colHighlight   : #E37C36;
 $dropDown       : false;
 .navbar-default {
   background-color: $bgDefault;
