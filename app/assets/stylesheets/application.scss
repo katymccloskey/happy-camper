@@ -5,7 +5,11 @@
 
 html, body{
   font-family: 'Encode Sans', sans-serif;
-  background: #C8D6AF;
+  background: #c8d6af; /* Old browsers */
+background: -moz-linear-gradient(top, #c8d6af 0%, #acb47b 33%, #466050 78%, #2c3b40 93%, #2c3b40 100%, #7db9e8 100%, #207cca 100%, #2c3b40 100%, #207cca 101%); /* FF3.6-15 */
+background: -webkit-linear-gradient(top, #c8d6af 0%,#acb47b 33%,#466050 78%,#2c3b40 93%,#2c3b40 100%,#7db9e8 100%,#207cca 100%,#2c3b40 100%,#207cca 101%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(to bottom, #c8d6af 0%,#acb47b 33%,#466050 78%,#2c3b40 93%,#2c3b40 100%,#7db9e8 100%,#207cca 100%,#2c3b40 100%,#207cca 101%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#c8d6af', endColorstr='#207cca',GradientType=0 ); /* IE6-9 */
   color: #000000;
 }
 
@@ -28,6 +32,14 @@ h1, h2, h3 {
 li {
  list-style-type: none;
  padding:5px;
+}
+
+footer {
+  background:url("mountains3.png")  repeat-x scroll top transparent;
+  background-size:100% 350px;
+  height: 350px;
+  width:100%;
+  overflow:hidden;
 }
 
 .fa-star{
