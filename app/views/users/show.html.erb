@@ -1,8 +1,13 @@
 
 <div class="item row">
 <div class="col-md-6">
-  <h2>Hello, <%= current_user.name %>!</h2>
-  <img class="img-circle" src=<%=current_user.picture %> >
+  <% if current_user.provider.nil? %>
+    <h2>Hello, <%= current_user.username %>!</h2>
+  <% else %>
+    <h2>Hello, <%= current_user.name %>!</h2>
+    <img class="img-circle" src=<%=current_user.picture %> >
+  <% end %>
+
 </div>
 
 

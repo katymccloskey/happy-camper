@@ -1,6 +1,6 @@
 <div class="row item">
-<h2>Log in</h2>
   <div class="col-md-4">
+  <h2>Login</h2></br>
     <%= form_for(resource, as: resource_name, url: session_path(resource_name), class: "form-horizontal") do |f| %>
       <div class="field form-group">
         <%= f.label :email %><br />
@@ -20,7 +20,7 @@
       <% end -%>
 
       <div class="actions form-group">
-        <%= f.submit "Log in", class: 'btn btn-primary' %>
+        <%= f.submit "Login", class: 'btn btn-primary' %>
       </div>
     <% end %>
 
@@ -30,7 +30,7 @@
       <%- if devise_mapping.omniauthable? %>
         <ul class="image-list signin-icons">
           <%- resource_class.omniauth_providers.each do |provider| %>
-            <li><%= link_to omniauth_authorize_path(resource_name, provider), :title => "Sign in with Google" do %>
+            <li><%= link_to omniauth_authorize_path(resource_name, provider), :title => " Sign in with Google" do %>
               <% end -%>
             </li>
           <% end %>
