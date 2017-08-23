@@ -35,8 +35,8 @@ ActiveRecord::Schema.define(version: 20170823155153) do
     t.string "water"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "google_picture"
-    t.string "reviews"
+    t.string "google_picture", default: [], array: true
+    t.string "reviews", default: [], array: true
   end
 
   create_table "cg_amenities", force: :cascade do |t|

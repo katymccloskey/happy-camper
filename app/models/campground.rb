@@ -21,15 +21,12 @@ class Campground < ApplicationRecord
        end
        if !spot.reviews.nil?
         spot.reviews.each do |review|
-          binding.pry
           @reviews << review.text
         end
+        self.google_picture = @urls
+        self.reviews = @reviews
+        self.save
       end
-      binding.pry
-      self.google_picture = @urls
-      self.reviews = @reviews
-      self.save
-      binding.pry
     end
   end
 end
