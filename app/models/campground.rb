@@ -14,14 +14,14 @@ class Campground < ApplicationRecord
     @urls = []
     @ratings = 0
     if !@spots.nil?
-     @spots.first(3).each do |spot|
+     @spots.first(5).each do |spot|
        if !spot.photos.nil?
-         spot.photos.first(5).each do |photo|
+         spot.photos.first(4).each do |photo|
            @urls << photo.fetch_url(1000)
          end
        end
        if !spot.reviews.nil?
-        spot.reviews.first(10).each do |review|
+        spot.reviews.first(6).each do |review|
           @reviews << review.text
         end
         self.google_picture = @urls
@@ -31,8 +31,9 @@ class Campground < ApplicationRecord
       if !spot.rating.nil?
         @ratings += spot.rating
       end
-      self.rating = (@ratings / @spots.length)
     end
+    self.rating = (@ratings / 5)
+    self.save
   end
 end
 
