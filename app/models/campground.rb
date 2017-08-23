@@ -9,14 +9,14 @@ class Campground < ApplicationRecord
   has_one :detail
 
   def google_photos
-   @spots = GOOGLE_CLIENT.spots(self.latitude, self.longitude, detail: true)
+    @spots = GOOGLE_CLIENT.spots(self.latitude, self.longitude)
    # @spot = @spots[0]
    @urls = []
    if !@spots.nil?
      @spots.each do |spot|
        if !spot.photos.nil?
          spot.photos.each do |photo|
-           @urls << photo.fetch_url(250)
+           @urls << photo.fetch_url(1000)
          end
        end
      end
