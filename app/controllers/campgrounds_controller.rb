@@ -61,6 +61,9 @@ if @campgrounds.empty?
   @campgrounds = Campground.all
 end
 
+@location = lookup_ip_location
+
+binding.pry
 @state = @campgrounds.first.state
 @hash = Gmaps4rails.build_markers(@campgrounds) do |campground, marker|
   marker.lat campground.latitude
