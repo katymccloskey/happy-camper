@@ -10,7 +10,7 @@
     <%end%>
   </div>
 
-
+<% if !@campground.google_picture.empty?%>
   <div class="container">
     <div class="col-md-12">
       <div id="myCarousel" class="carousel slide">
@@ -33,6 +33,7 @@
       </div>
     </div>
   </div>
+  <%end%>
 <br>
 </div>
   <!-- OTHER -->
