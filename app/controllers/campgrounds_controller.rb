@@ -3,7 +3,7 @@ class CampgroundsController < ApplicationController
 
   def show
     @campground = Campground.find(params[:id])
-    @campground.get_google_data if @campground.google_picture.empty? || @campground.reviews.empty?
+    @campground.get_google_data if @campground.google_picture.empty? || @campground.reviews.empty? || @campground.rating.nil?
 
     if @campground.contract_id.length < 4
       redirect_to no_detail_path(@campground)
