@@ -12,6 +12,7 @@ class Campground < ApplicationRecord
     @spots = GOOGLE_CLIENT.spots(self.latitude, self.longitude, detail: true)
     @reviews = []
     @urls = []
+    @ratings = 0
     if !@spots.nil?
      @spots.each do |spot|
        if !spot.photos.nil?
@@ -27,6 +28,10 @@ class Campground < ApplicationRecord
         self.reviews = @reviews
         self.save
       end
+      if !spot.rating.nil?
+        @ratings += spot.rating
+      end
+      self.rating = (@ratings / @spots.length)
     end
   end
 end
