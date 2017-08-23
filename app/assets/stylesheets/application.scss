@@ -4,8 +4,40 @@
 @import "font-awesome";
 
 html, body{
-font-family: 'Encode Sans', sans-serif;
+  font-family: 'Encode Sans', sans-serif;
   background: #C8D6AF;
+  color: #000000;
+}
+
+a {
+font-weight: bold;
+color: teal;
+letter-spacing: 2px;
+}
+
+h1, h2, h3 {
+  font-weight: bold;
+  background-color: #1A351D;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-shadow: rgba(255,255,255,0.5) 0px 3px 3px;
+}
+
+li {
+ list-style-type: none;
+ padding:5px;
+}
+
+#stars-rating {
+  color: #E7711B;
+}
+
+.important-star{
+  color:#305C36;
+  text-shadow: 2px 2px 2px gray;
+
 }
 
 #myCarousel img {
@@ -13,7 +45,6 @@ font-family: 'Encode Sans', sans-serif;
   height: 300px;
   max-height: 300px;
   margin: auto;
-
   box-shadow: 2px 2px 2px gray;
 }
 
@@ -41,13 +72,13 @@ font-family: 'Encode Sans', sans-serif;
 }
 
 .showcase {
-background: #f3f1e5; /* Old browsers */
-background: -moz-linear-gradient(top, #f3f1e5 0%, #efeddf 40%, #eae7d6 100%); /* FF3.6-15 */
-background: -webkit-linear-gradient(top, #f3f1e5 0%,#efeddf 40%,#eae7d6 100%); /* Chrome10-25,Safari5.1-6 */
-background: linear-gradient(to bottom, #f3f1e5 0%,#efeddf 40%,#eae7d6 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f3f1e5', endColorstr='#eae7d6',GradientType=0 ); /* IE6-9 */
-  box-shadow: 2px 2px 2px 2px gray;
-  border-radius: 5px;
+  border: 12px double #C8D6AF;
+  border-radius: 20px;
+  background: #f3f1e5; /* Old browsers */
+  background: -moz-linear-gradient(top, #f3f1e5 0%, #efeddf 40%, #eae7d6 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(top, #f3f1e5 0%,#efeddf 40%,#eae7d6 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom, #f3f1e5 0%,#efeddf 40%,#eae7d6 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f3f1e5', endColorstr='#eae7d6',GradientType=0 ); /* IE6-9 */
 }
 .center-cropper-title {
   width: 100px;
@@ -77,7 +108,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f3f1e5', end
 
 .each-campground-list{
   list-style: none;
-  border-bottom: solid gray;
+  border-bottom: groove gainsboro;
   padding: 10px;
 }
 
@@ -97,6 +128,7 @@ ul.ui-autocomplete {
   padding: 0;
   cursor: default;
   li {
+    list-style: none;
     background-color: #FFF;
     border-top: solid 1px #DDD;
     margin: 0;
@@ -131,19 +163,6 @@ a.morelink {
   background-color: #f0f0f0;
   margin: 10px;
 }
-
-.stars {
-  color: #E7711B;
-}
-
-
-
-/*#reviews-container {
-    height:150px;
-    line-height:20px;  Height / no. of lines to display
-    overflow:hidden;
-}*/
-
 
 /*------------BEGIN NAVBAR AND CAROUSEL CUSTOMIZATION-------------------*/
 
@@ -229,9 +248,19 @@ a.morelink {
   color: #305c36;
 }
 
-@media (max-width: 767px) {
+@media (max-width: 769px) {
   .navbar-default .navbar-nav .open .dropdown-menu > li > a {
     color: #305c36;
+  }
+
+  .location{
+    font-size: 25px;
+  }
+  .details{
+    font-size: 25px;
+    height:300px;
+    overflow-y:scroll;
+    width:100%;
   }
   .navbar-default .navbar-nav .open .dropdown-menu > li > a:hover,
   .navbar-default .navbar-nav .open .dropdown-menu > li > a:focus {

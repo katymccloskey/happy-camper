@@ -3,6 +3,15 @@ class ApplicationController < ActionController::Base
 
   before_action :configure_permitted_parameters, if: :devise_controller?
 
+  # hack for geocoder location in development env
+  def lookup_ip_location
+    if Rails.env.development?
+      Geocoder.search(request.remote_ip).first
+    else
+      request.location
+    end
+  end
+
   protected
 
   def configure_permitted_parameters
