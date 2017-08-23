@@ -1,6 +1,6 @@
 <div class="row item">
-<h2>Log in</h2>
   <div class="col-md-4">
+  <h2>Login</h2>
     <%= form_for(resource, as: resource_name, url: session_path(resource_name), class: "form-horizontal") do |f| %>
       <div class="field form-group">
         <%= f.label :email %><br />
@@ -20,7 +20,7 @@
       <% end -%>
 
       <div class="actions form-group">
-        <%= f.submit "Log in", class: 'btn btn-primary' %>
+        <%= f.submit "Login", class: 'btn btn-primary' %>
       </div>
     <% end %>
 
