@@ -4,17 +4,42 @@
 @import "font-awesome";
 
 html, body{
-font-family: 'Encode Sans', sans-serif;
+  font-family: 'Encode Sans', sans-serif;
   background: #C8D6AF;
+  color: #000000;
+}
+
+a {
+  font-weight: bold;
+  background-color: #1A351D;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-shadow: rgba(255,255,255,0.5) 0px 3px 3px;
+}
+
+h1, h2, h3 {
+  font-weight: bold;
+  background-color: #1A351D;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-shadow: rgba(255,255,255,0.5) 0px 3px 3px;
+}
+
+li {
+  list-style-image: url('tree.png');
 }
 
 #myCarousel img {
-width: auto;
-height: 300px;
-max-height: 300px;
-margin: auto;
-border-radius: 10%;
-box-shadow: 2px 2px 2px gray;
+  width: auto;
+  height: 300px;
+  max-height: 300px;
+  margin: auto;
+  border-radius: 10%;
+  box-shadow: 2px 2px 2px gray;
 }
 
 #map {
@@ -25,31 +50,31 @@ box-shadow: 2px 2px 2px gray;
 }
 
 .iframe-container{
-    position: relative;
-    width: 100%;
-    padding-bottom: 56.25%; /* Ratio 16:9 ( 100%/16*9 = 56.25% ) */
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%; /* Ratio 16:9 ( 100%/16*9 = 56.25% ) */
 }
 .iframe-container > *{
 
 
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    margin: 0;
-    padding: 0;
-    height: 100%;
-    width: 100%;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
 }
 
 
 
 .showcase {
-background: #f3f1e5; /* Old browsers */
-background: -moz-linear-gradient(top, #f3f1e5 0%, #efeddf 40%, #eae7d6 100%); /* FF3.6-15 */
-background: -webkit-linear-gradient(top, #f3f1e5 0%,#efeddf 40%,#eae7d6 100%); /* Chrome10-25,Safari5.1-6 */
-background: linear-gradient(to bottom, #f3f1e5 0%,#efeddf 40%,#eae7d6 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f3f1e5', endColorstr='#eae7d6',GradientType=0 ); /* IE6-9 */
+  background: #f3f1e5; /* Old browsers */
+  background: -moz-linear-gradient(top, #f3f1e5 0%, #efeddf 40%, #eae7d6 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(top, #f3f1e5 0%,#efeddf 40%,#eae7d6 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom, #f3f1e5 0%,#efeddf 40%,#eae7d6 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f3f1e5', endColorstr='#eae7d6',GradientType=0 ); /* IE6-9 */
   box-shadow: 2px 2px 2px 2px gray;
   border-radius: 5px;
 }
@@ -200,9 +225,19 @@ ul.ui-autocomplete {
   color: #305c36;
 }
 
-@media (max-width: 767px) {
+@media (max-width: 769px) {
   .navbar-default .navbar-nav .open .dropdown-menu > li > a {
     color: #305c36;
+  }
+
+  .location{
+    font-size: 25px;
+  }
+  .details{
+    font-size: 25px;
+    height:300px;
+    overflow-y:scroll;
+    width:100%;
   }
   .navbar-default .navbar-nav .open .dropdown-menu > li > a:hover,
   .navbar-default .navbar-nav .open .dropdown-menu > li > a:focus {
