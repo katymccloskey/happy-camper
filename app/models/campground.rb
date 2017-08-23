@@ -16,7 +16,7 @@ class Campground < ApplicationRecord
      @spots.each do |spot|
        if !spot.photos.nil?
          spot.photos.each do |photo|
-           @urls << photo.fetch_url(250)
+           @urls << photo.fetch_url(1000)
          end
        end
      end

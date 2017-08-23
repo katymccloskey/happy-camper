@@ -2,26 +2,19 @@
 @import "bootstrap";
 @import "font-awesome-sprockets";
 @import "font-awesome";
-/*
-#map {
-  height: 100%;
-
-}
- Optional: Makes the sample page fill the window.
-html, body {
-  height: 100%;
-  margin: 0;
-  padding: 0;
-}
-*/
-
-
-
-
 
 html, body{
 font-family: 'Encode Sans', sans-serif;
   background: #C8D6AF;
+}
+
+#myCarousel img {
+width: auto;
+height: 300px;
+max-height: 300px;
+margin: auto;
+border-radius: 10%;
+box-shadow: 2px 2px 2px gray;
 }
 
 #map {
@@ -71,8 +64,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f3f1e5', end
 }
 
 .rounded {
-  border-radius: 10%;
-  box-shadow: 2px 2px 2px gray;
+
 }
 
 .center-cropped {
