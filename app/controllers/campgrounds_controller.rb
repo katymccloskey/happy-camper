@@ -40,18 +40,18 @@ class CampgroundsController < ApplicationController
  def index
   @location = lookup_ip_location
   if params[:term] == "" || params[:term].nil?
-    @campgrounds = Campground.where(state: @location.data["region_code"])
+    @campgrounds = Campground.order(:name).where(state: @location.data["region_code"])
   else
     term = params[:term].titleize
     state = CampgroundsHelper::states_list(term)
 
     if state
-     @campgrounds = Campground.where('state ILIKE ?', "%#{state}%")
+      @campgrounds = Campground.order(:name).where('state ILIKE ?', "%#{state}%")
      if request.xhr?
       render json: @campgrounds.map(&:state).uniq
     end
   else
-   @campgrounds = Campground.where('name ILIKE ?', "%#{term}%")
+    @campgrounds = Campground.order(:name).where('name ILIKE ?', "%#{term}%")
    if request.xhr?
     render json: @campgrounds.map(&:name)
   end

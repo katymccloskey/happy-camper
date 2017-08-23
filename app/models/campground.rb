@@ -13,14 +13,14 @@ class Campground < ApplicationRecord
     @reviews = []
     @urls = []
     if !@spots.nil?
-     @spots.each do |spot|
+     @spots.first(3).each do |spot|
        if !spot.photos.nil?
-         spot.photos.each do |photo|
+         spot.photos.first(5).each do |photo|
            @urls << photo.fetch_url(1000)
          end
        end
        if !spot.reviews.nil?
-        spot.reviews.each do |review|
+        spot.reviews.first(10).each do |review|
           @reviews << review.text
         end
         self.google_picture = @urls

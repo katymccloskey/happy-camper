@@ -14,6 +14,7 @@
 //= require bootstrap-sprockets
 //= require rails-ujs
 //= require jquery-ui
+//= require turbolinks
 //= require mustache
 //= require underscore
 //= require gmaps/google
