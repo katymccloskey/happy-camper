@@ -5,7 +5,7 @@
     <%if found_favorite(current_user, @campground)%>
     <%= link_to '<i class="fa fa-lg fa-heart"></i> Unfavorite'.html_safe, favorite_campground_path(@campground), method: :post, class:"btn btn-info btn-sm"%>
     <%else%>
-    <%= link_to '<i class="fa fa-lg fa-heart"></i> Favorite'.html_safe, favorite_campground_path(@campground), method: :post, class:"btn btn-info btn-sm"%>
+    <%= link_to '<i class="fa fa-lg fa-heart-o"></i> Favorite'.html_safe, favorite_campground_path(@campground), method: :post, class:"btn btn-info btn-sm"%>
     <% end %></h1>
     <%end%>
   </div>
@@ -68,8 +68,8 @@
         <article class="description col-md-12">
           <h3>Important Info:</h3>
           <ul>
-            <%@campground.detail.important_info.split("\n").each do |info|%>
-            <li><%=info%></li>
+            <%@campground.detail.important_info.split("\n").reverse.drop(1).reverse.each do |info|%>
+            <li><i class="fa fa-fw fa-star" aria-hidden="true"></i><%=info%></li>
             <%end%>
           </ul>
         </article>
