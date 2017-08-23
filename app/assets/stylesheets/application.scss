@@ -30,7 +30,11 @@ li {
  padding:5px;
 }
 
-.fa-star{
+#stars-rating {
+  color: #E7711B;
+}
+
+.important-star{
   color:#305C36;
   text-shadow: 2px 2px 2px gray;
 
@@ -41,7 +45,6 @@ li {
   height: 300px;
   max-height: 300px;
   margin: auto;
-  border-radius: 10%;
   box-shadow: 2px 2px 2px gray;
 }
 
@@ -58,8 +61,6 @@ li {
   padding-bottom: 56.25%; /* Ratio 16:9 ( 100%/16*9 = 56.25% ) */
 }
 .iframe-container > *{
-
-
   top: 0;
   right: 0;
   bottom: 0;
@@ -69,8 +70,6 @@ li {
   height: 100%;
   width: 100%;
 }
-
-
 
 .showcase {
   border: 12px double #C8D6AF;
@@ -143,6 +142,26 @@ ul.ui-autocomplete {
       background-color: #FFFCB2;
     }
   }
+}
+
+/* REVIEW STYLING*/
+a {
+  color: #0254EB
+}
+a:visited {
+  color: #0254EB
+}
+a.morelink {
+  text-decoration:none;
+  outline: none;
+}
+.morecontent span {
+  display: none;
+}
+.comment {
+  width: 400px;
+  background-color: #f0f0f0;
+  margin: 10px;
 }
 
 /*------------BEGIN NAVBAR AND CAROUSEL CUSTOMIZATION-------------------*/

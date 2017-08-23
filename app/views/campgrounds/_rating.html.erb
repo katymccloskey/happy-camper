@@ -1,0 +1,45 @@
+<div class="row" id="stars-rating">
+<% if @campground.rating == 0 %>
+  <i class="fa fa-star-o fa-3x " aria-hidden="true"></i>
+  <i class="fa fa-star-o fa-3x" aria-hidden="true"></i>
+  <i class="fa fa-star-o fa-3x" aria-hidden="true"></i>
+  <i class="fa fa-star-o fa-3x" aria-hidden="true"></i>
+  <i class="fa fa-star-o fa-3x" aria-hidden="true"></i>
+
+<% elsif @campground.rating == 1 %>
+<i class="fa fa-star fa-3x" aria-hidden="true"></i>
+<i class="fa fa-star-o fa-3x" aria-hidden="true"></i>
+<i class="fa fa-star-o fa-3x" aria-hidden="true"></i>
+<i class="fa fa-star-o fa-3x" aria-hidden="true"></i>
+<i class="fa fa-star-o fa-3x" aria-hidden="true"></i>
+
+<% elsif @campground.rating == 2 %>
+<i class="fa fa-star fa-3x" aria-hidden="true"></i>
+<i class="fa fa-star fa-3x" aria-hidden="true"></i>
+<i class="fa fa-star-o fa-3x" aria-hidden="true"></i>
+<i class="fa fa-star-o fa-3x" aria-hidden="true"></i>
+<i class="fa fa-star-o fa-3x" aria-hidden="true"></i>
+
+<% elsif @campground.rating == 3 %>
+<i class="fa fa-star fa-3x" aria-hidden="true"></i>
+<i class="fa fa-star fa-3x" aria-hidden="true"></i>
+<i class="fa fa-star fa-3x" aria-hidden="true"></i>
+<i class="fa fa-star-o fa-3x" aria-hidden="true"></i>
+<i class="fa fa-star-o fa-3x" aria-hidden="true"></i>
+
+<% elsif @campground.rating == 4 %>
+<i class="fa fa-star fa-3x" aria-hidden="true"></i>
+<i class="fa fa-star fa-3x" aria-hidden="true"></i>
+<i class="fa fa-star fa-3x" aria-hidden="true"></i>
+<i class="fa fa-star fa-3x" aria-hidden="true"></i>
+<i class="fa fa-star-o fa-3x" aria-hidden="true"></i>
+
+<% else @campground.rating == 5 %>
+<i class="fa fa-star fa-3x" aria-hidden="true"></i>
+<i class="fa fa-star fa-3x" aria-hidden="true"></i>
+<i class="fa fa-star fa-3x" aria-hidden="true"></i>
+<i class="fa fa-star fa-3x" aria-hidden="true"></i>
+<i class="fa fa-star fa-3x" aria-hidden="true"></i>
+
+<% end %>
+</div>
