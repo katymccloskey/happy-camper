@@ -8,28 +8,33 @@ class Campground < ApplicationRecord
   has_many :amenities, through: :cg_amenities
   has_one :detail
 
-  def google_photos
+  def get_google_data
     @spots = GOOGLE_CLIENT.spots(self.latitude, self.longitude, detail: true)
-   @reviews = []
-   @urls = []
-   if !@spots.nil?
+    @reviews = []
+    @urls = []
+    if !@spots.nil?
      @spots.each do |spot|
        if !spot.photos.nil?
          spot.photos.each do |photo|
            @urls << photo.fetch_url(1000)
          end
        end
-       if !spot.review.nil?
+       if !spot.reviews.nil?
         spot.reviews.each do |review|
+          binding.pry
           @reviews << review.text
         end
-     end
-     self.photos << @urls
-     self.reviews << @reviews
-   end
- end
+      end
+      binding.pry
+      self.google_picture = @urls
+      self.reviews = @reviews
+      self.save
+      binding.pry
+    end
+  end
+end
 
- def find_amenity_accessible
+def find_amenity_accessible
   self.amenities.select do |amenity|
     amenity.name if amenity.name.downcase.include? 'accessible'
   end.map(&:name)
