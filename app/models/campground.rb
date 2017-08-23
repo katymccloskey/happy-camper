@@ -10,7 +10,7 @@ class Campground < ApplicationRecord
 
   def google_photos
     @spots = GOOGLE_CLIENT.spots(self.latitude, self.longitude, detail: true)
-   # @spot = @spots[0]
+   @reviews = []
    @urls = []
    if !@spots.nil?
      @spots.each do |spot|
@@ -19,8 +19,13 @@ class Campground < ApplicationRecord
            @urls << photo.fetch_url(1000)
          end
        end
+       if !spot.review.nil?
+        spot.reviews.each do |review|
+          @reviews << review.text
+        end
      end
-     @urls
+     self.photos << @urls
+     self.reviews << @reviews
    end
  end
 
