@@ -38,8 +38,9 @@ end
 
 
 def index
+  @location = lookup_ip_location
   if params[:term] == "" || params[:term].nil?
-    @campgrounds = Campground.all
+    @campgrounds = Campground.where(state: @location.data["region_code"])
   else
     term = params[:term].titleize
     state = CampgroundsHelper::states_list(term)
@@ -57,18 +58,7 @@ def index
     end
   end
 
-  if @campgrounds.empty?
-    @campgrounds = Campground.all
-  end
-
-  @location = lookup_ip_location
-
-  @state_campgrounds = @campgrounds.where(state: @location.data["region_code"])
-  if @state_campgrounds.empty?
-    @state_campgrounds = Campground.all
-  end
-
-  @hash = Gmaps4rails.build_markers(@state_campgrounds) do |campground, marker|
+  @hash = Gmaps4rails.build_markers(@campgrounds) do |campground, marker|
     marker.lat campground.latitude
     marker.lng campground.longitude
     marker.infowindow "<a href=/campgrounds/#{campground.id}>#{campground.name}</a>"
