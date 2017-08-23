@@ -5,18 +5,18 @@ class CampgroundsController < ApplicationController
     @campground = Campground.find(params[:id])
     @campground.get_google_data if @campground.google_picture.empty? || @campground.reviews.empty?
 
-   if @campground.contract_id.length < 4
-    redirect_to no_detail_path(@campground)
-  else
-    if @campground.detail.nil?
-      details = Supercamp.details.contract_code(@campground.contract_id).id(@campground.facility_id).results
-      parent = details.find { |hash| hash.keys.include?(:parent) }.reduce[1]
+    if @campground.contract_id.length < 4
+      redirect_to no_detail_path(@campground)
+    else
+      if @campground.detail.nil?
+        details = Supercamp.details.contract_code(@campground.contract_id).id(@campground.facility_id).results
+        parent = details.find { |hash| hash.keys.include?(:parent) }.reduce[1]
 
-      details.each do |detail|
-       @campground.amenities << Amenity.find_or_create_by(name: detail[:name]) if detail[:distance] && detail[:name]
-     end
+        details.each do |detail|
+         @campground.amenities << Amenity.find_or_create_by(name: detail[:name]) if detail[:distance] && detail[:name]
+       end
 
-     prime_detail = Detail.create(city: details[0].city.titleize,
+       prime_detail = Detail.create(city: details[0].city.titleize,
         # Gsub madness
         state: details[0].state,
         address: details[0].street_address.titleize,
@@ -29,17 +29,18 @@ class CampgroundsController < ApplicationController
         reservation_url: parent.full_reservation_url,
         campground: @campground
         )
+     end
+
+     @show = {lat:@campground.latitude,lng:@campground.longitude,name:@campground.name,city:@campground.detail.city,state:@campground.state}.to_json
    end
-
-   @show = {lat:@campground.latitude,lng:@campground.longitude,name:@campground.name,city:@campground.detail.city,state:@campground.state}.to_json
  end
-end
 
 
 
-def index
+ def index
+  @location = lookup_ip_location
   if params[:term] == "" || params[:term].nil?
-    @campgrounds = Campground.all
+    @campgrounds = Campground.where(state: @location.data["region_code"])
   else
     term = params[:term].titleize
     state = CampgroundsHelper::states_list(term)
@@ -50,33 +51,27 @@ def index
       render json: @campgrounds.map(&:state).uniq
     end
   else
-     @campgrounds = Campground.where('name ILIKE ?', "%#{term}%")
-     if request.xhr?
-      render json: @campgrounds.map(&:name)
-      end
-    end
-  end
-
-  if @campgrounds.empty?
-    @campgrounds = Campground.all
-  end
-
-  @location = lookup_ip_location
-
-  @state_campgrounds = @campgrounds.where(state: @location.data["region_code"])
-  if @state_campgrounds.empty?
-    @state_campgrounds = Campground.all
-  end
-
-  @hash = Gmaps4rails.build_markers(@state_campgrounds) do |campground, marker|
-    marker.lat campground.latitude
-    marker.lng campground.longitude
-    marker.infowindow "<a href=/campgrounds/#{campground.id}>#{campground.name}</a>"
-    marker.picture(url: 'http://maps.gstatic.com/mapfiles/ms2/micons/campground.png',
-      width: 25,
-      height: 25)
+   @campgrounds = Campground.where('name ILIKE ?', "%#{term}%")
+   if request.xhr?
+    render json: @campgrounds.map(&:name)
   end
 end
+end
+
+@hash = Gmaps4rails.build_markers(@campgrounds) do |campground, marker|
+  marker.lat campground.latitude
+  marker.lng campground.longitude
+  marker.infowindow "<a href=/campgrounds/#{campground.id}>#{campground.name}</a>"
+  marker.picture(url: 'http://maps.gstatic.com/mapfiles/ms2/micons/campground.png',
+    width: 25,
+    height: 25)
+end
+
+if !params[:term].nil? && @campgrounds.empty?
+  flash.now[:error] = "Your search didn't pull up any results. TRY AGAIN"
+end
+end
+
 
 def toggle_favorite
   @campground = Campground.find(params[:id])
