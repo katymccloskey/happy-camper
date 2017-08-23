@@ -30,7 +30,7 @@ h1, h2, h3 {
 }
 
 li {
-  list-style-image: url('tree.png');
+ list-style-type: circle;
 }
 
 #myCarousel img {
@@ -106,7 +106,7 @@ li {
 
 .each-campground-list{
   list-style: none;
-  border-bottom: solid gray;
+  border-bottom: groove gainsboro;
   padding: 10px;
 }
 
