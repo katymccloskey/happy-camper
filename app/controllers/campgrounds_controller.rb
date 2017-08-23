@@ -50,26 +50,32 @@ def index
       render json: @campgrounds.map(&:state).uniq
     end
   else
-   @campgrounds = Campground.where('name ILIKE ?', "%#{term}%")
-   if request.xhr?
-    render json: @campgrounds.map(&:name)
+     @campgrounds = Campground.where('name ILIKE ?', "%#{term}%")
+     if request.xhr?
+      render json: @campgrounds.map(&:name)
+      end
+    end
   end
-end
-end
 
-if @campgrounds.empty?
-  @campgrounds = Campground.all
-end
+  if @campgrounds.empty?
+    @campgrounds = Campground.all
+  end
 
-@state = @campgrounds.first.state
-@hash = Gmaps4rails.build_markers(@campgrounds) do |campground, marker|
-  marker.lat campground.latitude
-  marker.lng campground.longitude
-  marker.infowindow "<a href=/campgrounds/#{campground.id}>#{campground.name}</a>"
-  marker.picture(url: 'http://maps.gstatic.com/mapfiles/ms2/micons/campground.png',
-    width: 25,
-    height: 25)
-end
+  @location = lookup_ip_location
+
+  @state_campgrounds = @campgrounds.where(state: @location.data["region_code"])
+  if @state_campgrounds.empty?
+    @state_campgrounds = Campground.all
+  end
+
+  @hash = Gmaps4rails.build_markers(@state_campgrounds) do |campground, marker|
+    marker.lat campground.latitude
+    marker.lng campground.longitude
+    marker.infowindow "<a href=/campgrounds/#{campground.id}>#{campground.name}</a>"
+    marker.picture(url: 'http://maps.gstatic.com/mapfiles/ms2/micons/campground.png',
+      width: 25,
+      height: 25)
+  end
 end
 
 def toggle_favorite

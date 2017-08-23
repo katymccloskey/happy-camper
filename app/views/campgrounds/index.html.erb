@@ -17,7 +17,7 @@
     <div id="map"></div>
       <script>
         handler = Gmaps.build('Google');
-        handler.buildMap({ provider: {zoom: 5, styles: mapStyle, center: new google.maps.LatLng(<%=@campgrounds.first.latitude%>, <%=@campgrounds.first.longitude%>), mapTypeId: google.maps.MapTypeId.ROADMAP}, internal: {id: 'map'}}, function(){
+        handler.buildMap({ provider: {zoom: 5, styles: mapStyle, center: new google.maps.LatLng(<%=@state_campgrounds.first.latitude%>, <%=@state_campgrounds.first.longitude%>), mapTypeId: google.maps.MapTypeId.ROADMAP}, internal: {id: 'map'}}, function(){
         markers = handler.addMarkers(<%=raw @hash.to_json %>);
         handler.bounds.extendWith(markers);
 
@@ -27,7 +27,7 @@
     </div>
     <div id="add-campgrounds" class="col-md-4">
       <div id='campground-list' type="x-tmpl-mustache">
-        <%@campgrounds.each do |campground|%>
+        <%@state_campgrounds.each do |campground|%>
         <li class="each-campground-list"><%=link_to "#{campground.name}", campground_path(campground)%> </li>
         <%end%>
       </div>
