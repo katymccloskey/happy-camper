@@ -8,7 +8,7 @@
 
 <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
   <%= link_to "Forgot your password?", new_password_path(resource_name) %><br />
-<% end -%>
+<% end -%><br />
 
 <%- if devise_mapping.confirmable? && controller_name != 'confirmations' %>
   <%= link_to "Didn't receive confirmation instructions?", new_confirmation_path(resource_name) %><br />
@@ -20,6 +20,6 @@
 
 <%- if devise_mapping.omniauthable? %>
   <%- resource_class.omniauth_providers.each do |provider| %>
-    <%= link_to "Sign in with Google", omniauth_authorize_path(resource_name, provider) %><br />
+    <%= link_to "Sign in with Google", omniauth_authorize_path(resource_name, provider), class:"btn fa fa-google-plus ",style:"background-color: #D34836; color: white;"   %><br />
   <% end -%>
-<% end -%>
+<% end -%></br>
