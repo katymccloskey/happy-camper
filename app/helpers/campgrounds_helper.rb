@@ -8,6 +8,7 @@ module CampgroundsHelper
 
     states = {
       "Alabama" => "AL",
+      "Alaska" => "AK",
       "Arkansas" => "AR",
       "Arizona" => "AZ",
       "California" => "CA",
