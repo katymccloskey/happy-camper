@@ -104,9 +104,13 @@
        <br>
      </div>
    </div>
-   <p> <%= @campground.rating %></p>
+
+   <div class="text-center stars">
+     <%= render "campgrounds/rating" %>
+   </div>
+   <br>
    <!--AMENTITIES ROW/CONTAINER -->
-   <%= render "campgrounds/amenities" %>
+  <%= render "campgrounds/amenities" %>
 
  </div>
  <!-- CLOSE MAP-DETAIL CONTAINER -->
