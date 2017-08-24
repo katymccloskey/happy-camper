@@ -19,10 +19,11 @@
     <div class="col-md-12">
       <tbody>
        <% @campgrounds.each do |campground| %>
-       <td class="col-md-6 text-left">
+       <td class="col-md-6 text-center">
        <%= link_to image_tag(campground.google_picture.first), campground_path(campground), class: "img-fluid"%>
        <div class="text-center col-md-6">
-          <%=link_to "#{campground.name}", campground_path(campground)%>
+          <h3><%=link_to "#{campground.name}", campground_path(campground)%></h3>
+          <p><%=campground.detail.description%></p>
         </div>
       </td>
     </tbody>

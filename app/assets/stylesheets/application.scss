@@ -59,8 +59,12 @@ footer {
   height: 250px;
   max-height: 250px;
   margin: auto;
-  border-radius: 150px;
-  box-shadow: 2px 2px 2px gray;
+  border: 6px double gainsboro;
+  box-shadow: 3px 3px 3px gray;
+}
+
+.fav-camps a:hover {
+  color: #E37C36;
 }
 
 #stars-rating {
@@ -143,6 +147,9 @@ footer {
   list-style: none;
   border-bottom: groove gainsboro;
   padding: 10px;
+}
+.each-campground-list a:hover {
+   color: #E37C36;
 }
 
 #add-campgrounds{
