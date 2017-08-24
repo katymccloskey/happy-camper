@@ -20,4 +20,8 @@ FactoryGirl.define do
     latitude "37.6822222"
    longitude "-119.0894444"
   end
+
+  factory :campgrounds do
+    name "7 Il Ranch"
+  end
 end
