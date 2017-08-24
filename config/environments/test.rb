@@ -41,4 +41,10 @@ Rails.application.configure do
   # config.action_view.raise_on_missing_translations = true
 
 end
+  # hack for geocoder location in test env
+  class ActionDispatch::Request
+    def remote_ip
+      "38.140.212.66"
+    end
+end
 

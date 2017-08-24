@@ -39,6 +39,7 @@ class CampgroundsController < ApplicationController
 
  def index
   @location = lookup_ip_location
+
   if params[:term] == "" || params[:term].nil?
     @campgrounds = Campground.order(:name).where(state: @location.data["region_code"])
   else
@@ -47,29 +48,30 @@ class CampgroundsController < ApplicationController
 
     if state
       @campgrounds = Campground.order(:name).where('state ILIKE ?', "%#{state}%")
-     if request.xhr?
-      render json: @campgrounds.map(&:state).uniq
+       if request.xhr?
+        render json: @campgrounds.map(&:state).uniq
+       end
+    else
+      @campgrounds = Campground.order(:name).where('name ILIKE ?', "%#{term}%")
+      if request.xhr?
+       render json: @campgrounds.map(&:name)
+      end
     end
-  else
-    @campgrounds = Campground.order(:name).where('name ILIKE ?', "%#{term}%")
-   if request.xhr?
-    render json: @campgrounds.map(&:name)
   end
-end
-end
 
-@hash = Gmaps4rails.build_markers(@campgrounds) do |campground, marker|
-  marker.lat campground.latitude
-  marker.lng campground.longitude
-  marker.infowindow "<a href=/campgrounds/#{campground.id}>#{campground.name}</a>"
-  marker.picture(url: 'http://maps.gstatic.com/mapfiles/ms2/micons/campground.png',
-    width: 25,
-    height: 25)
-end
 
-if !params[:term].nil? && @campgrounds.empty?
-  flash.now[:error] = "Your search didn't pull up any results. TRY AGAIN"
-end
+  @hash = Gmaps4rails.build_markers(@campgrounds) do |campground, marker|
+    marker.lat campground.latitude
+    marker.lng campground.longitude
+    marker.infowindow "<a href=/campgrounds/#{campground.id}>#{campground.name}</a>"
+    marker.picture(url: 'http://maps.gstatic.com/mapfiles/ms2/micons/campground.png',
+      width: 25,
+      height: 25)
+  end
+
+  if !params[:term].nil? && @campgrounds.empty?
+    flash.now[:error] = "Your search didn't pull up any results. TRY AGAIN"
+  end
 end
 
 
