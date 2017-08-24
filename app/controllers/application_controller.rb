@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
 
   # hack for geocoder location in development env
   def lookup_ip_location
-    if Rails.env.development?
+    if Rails.env.development? || Rails.env.test?
       Geocoder.search(request.remote_ip).first
     else
       request.location
