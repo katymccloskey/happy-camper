@@ -2,10 +2,11 @@
 @import "bootstrap";
 @import "font-awesome-sprockets";
 @import "font-awesome";
-@import url('https://fonts.googleapis.com/css?family=Cabin+Sketch:400');
+@import url('https://fonts.googleapis.com/css?family=Cabin+Sketch:400|Muli:300');
+
 
 body {
-  font-family: 'Encode Sans', sans-serif;
+  font-family: 'Muli', sans-serif;
   background: -moz-linear-gradient(top, rgba(227,221,156,1) 0%, rgba(226,220,156,1) 1%, rgba(139,148,116,0.7) 100%); /* FF3.6-15 */
   background: -webkit-linear-gradient(top, rgba(227,221,156,1) 0%,rgba(226,220,156,1) 1%,rgba(139,148,116,0.7) 100%); /* Chrome10-25,Safari5.1-6 */
   background: linear-gradient(to bottom, rgba(227,221,156,1) 0%,rgba(226,220,156,1) 1%,rgba(139,148,116,0.7) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
@@ -16,7 +17,9 @@ background: -webkit-linear-gradient(top, #c8d6af 0%,#acb47b 33%,#466050 78%,#2c3
 background: linear-gradient(to bottom, #c8d6af 0%,#acb47b 33%,#466050 78%,#2c3b40 93%,#2c3b40 100%,#7db9e8 100%,#207cca 100%,#2c3b40 100%,#207cca 101%);
 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#c8d6af', endColorstr='#207cca',GradientType=0 );*/
   color: #000000;
-  height: 100%;
+  /*height: 100%;*/
+   margin: 0px;
+  padding: 0px;
 }
 
 a {
