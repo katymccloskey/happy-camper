@@ -23,7 +23,7 @@ RSpec.describe CampgroundsController, type: :controller do
       expect(assigns(@hash)).to_not be_empty
     end
 
-    it "renders the :index template" do
+    it "renders the index template" do
       get :index
       expect(response).to render_template(:index)
     end
@@ -39,8 +39,22 @@ RSpec.describe CampgroundsController, type: :controller do
       get :index, params:{term: "hot dog"}
       expect(flash[:error]).to eq ("Your search didn't pull up any results. TRY AGAIN")
     end
-
   end
+
+  describe "GET #show" do
+    let!(:campground) { FactoryGirl.create(:campground) }
+
+    it "returns http success" do
+      get :show , params: {id: campground.id}
+      expect(response).to have_http_status(:success)
+    end
+
+    it "renders the :show template" do
+      get :show, params: { id: campground.id }
+      expect(response).to render_template(:show)
+    end
+  end
+
 end
 
 

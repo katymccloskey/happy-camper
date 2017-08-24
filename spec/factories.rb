@@ -11,4 +11,13 @@ FactoryGirl.define do
     email         "test2@test.com"
     password      "test123"
   end
+
+  factory :campground do
+    name  "Agnew Meadows Group Camp"
+    id "512"
+    contract_id "NRSO"
+    facility_id "70158"
+    latitude "37.6822222"
+   longitude "-119.0894444"
+  end
 end
