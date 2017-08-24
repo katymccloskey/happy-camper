@@ -25,16 +25,20 @@
 <body class="wrapper">
   <%= render "campgrounds/navbar" %>
   <% flash.each do |name, msg| %>
-  <%= content_tag :div, msg, class: "alert alert-danger" %>
+  <% if name == "error" %>
+  <%= content_tag :div, msg, class: "alert container text-center alert-danger" %>
+  <% else %>
+  <%= content_tag :div, msg, class: "alert container text-center alert-success" %>
+  <% end %>
   <% end %>
   <div class="container">
     <%= yield %>
   </div>
   <br>
   <footer class="footer">
-  <div class="container-fluid">
-  <p id="copyright"><%= link_to 'Made for Happy Campers, by Happy Campers', 'https://github.com/katymccloskey/happy-camper', target: '_blank' %></p>
-  </div>
+    <div class="container-fluid">
+      <p id="copyright"><%= link_to 'Made for Happy Campers, by Happy Campers', 'https://github.com/katymccloskey/happy-camper', target: '_blank' %></p>
+    </div>
   </footer>
 </body>
 </html>
