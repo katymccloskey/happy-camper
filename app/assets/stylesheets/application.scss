@@ -3,9 +3,14 @@
 @import "font-awesome-sprockets";
 @import "font-awesome";
 
-html, body{
-  font-family: 'Encode Sans', sans-serif;
+html {
+  position: relative;
+  min-height: 100%;
+}
 
+body{
+  margin-bottom: 350px;
+  font-family: 'Encode Sans', sans-serif;
   background: -moz-linear-gradient(top, rgba(227,221,156,1) 0%, rgba(226,220,156,1) 1%, rgba(139,148,116,0.7) 100%); /* FF3.6-15 */
 background: -webkit-linear-gradient(top, rgba(227,221,156,1) 0%,rgba(226,220,156,1) 1%,rgba(139,148,116,0.7) 100%); /* Chrome10-25,Safari5.1-6 */
 background: linear-gradient(to bottom, rgba(227,221,156,1) 0%,rgba(226,220,156,1) 1%,rgba(139,148,116,0.7) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
@@ -40,6 +45,8 @@ li {
 
 
 footer {
+  position: absolute;
+  bottom: 0;
   background:url("mountains3.png")  repeat-x scroll top transparent;
   background-size:100% 350px;
   height: 350px;
