@@ -4,29 +4,30 @@
 @import "font-awesome";
 @import url('https://fonts.googleapis.com/css?family=Cabin+Sketch:400');
 
-html, body{
+html{
+  position: relative;
+  min-height: 100%;
+}
+
+body{
+  margin-bottom: 350px;
   font-family: 'Encode Sans', sans-serif;
   background: -moz-linear-gradient(top, rgba(227,221,156,1) 0%, rgba(226,220,156,1) 1%, rgba(139,148,116,0.7) 100%); /* FF3.6-15 */
   background: -webkit-linear-gradient(top, rgba(227,221,156,1) 0%,rgba(226,220,156,1) 1%,rgba(139,148,116,0.7) 100%); /* Chrome10-25,Safari5.1-6 */
   background: linear-gradient(to bottom, rgba(227,221,156,1) 0%,rgba(226,220,156,1) 1%,rgba(139,148,116,0.7) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e3dd9c', endColorstr='#b38b9474',GradientType=0 ); /* IE6-9 */
-  /*background: #c8d6af;*/
-/*background: -moz-linear-gradient(top, #c8d6af 0%, #acb47b 33%, #466050 78%, #2c3b40 93%, #2c3b40 100%, #7db9e8 100%, #207cca 100%, #2c3b40 100%, #207cca 101%);
-background: -webkit-linear-gradient(top, #c8d6af 0%,#acb47b 33%,#466050 78%,#2c3b40 93%,#2c3b40 100%,#7db9e8 100%,#207cca 100%,#2c3b40 100%,#207cca 101%);
-background: linear-gradient(to bottom, #c8d6af 0%,#acb47b 33%,#466050 78%,#2c3b40 93%,#2c3b40 100%,#7db9e8 100%,#207cca 100%,#2c3b40 100%,#207cca 101%);
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#c8d6af', endColorstr='#207cca',GradientType=0 );*/
   color: #000000;
-  height: 100%;
+
 }
 
 a {
-font-weight: bold;
-color: #558C8C;
-letter-spacing: 2px;
+  font-weight: bold;
+  color: #558C8C;
+  letter-spacing: 2px;
 }
 
 a:hover {
-    color: #E37C36;
+  color: #E37C36;
 }
 
 h1, h2, h3 {
@@ -44,21 +45,36 @@ li {
  padding:5px;
 }
 
-#copyright {
+#copyright a {
   position: absolute;
   text-align: center;
   bottom: 1px;
   color: #F5F5F5;
-
+  font-weight: 100;
+  font-style: italic;
 }
 
 footer {
+  position: absolute;
+  bottom: 0;
   background:url("mountains3.png")  repeat-x scroll top transparent;
   background-size:100% 350px;
   height: 350px;
   width:100%;
   overflow:hidden;
-  position: relative;
+}
+
+.fav-camps img {
+  width: auto;
+  height: 250px;
+  max-height: 250px;
+  margin: auto;
+  border: 6px double gainsboro;
+  box-shadow: 3px 3px 3px gray;
+}
+
+.fav-camps a:hover {
+  color: #E37C36;
 }
 
 #stars-rating {
@@ -150,6 +166,9 @@ footer {
   border-bottom: groove gainsboro;
   padding: 10px;
 }
+.each-campground-list a:hover {
+   color: #E37C36;
+}
 
 #add-campgrounds{
   overflow-y: scroll;
@@ -228,78 +247,81 @@ $dropDown       : false;
     margin-top: 10px;
     &:hover, &:focus {
       color: $colHighlight; }}
+
   .navbar-brand-img {
     transform: scale(2, 2);
     margin-top: 4px;
       }
-  .navbar-text {
-    color: $colDefault; }
-  .navbar-nav {
-    > li {
-      > a {
-        color: $colDefault;
-        &:hover,  &:focus {
-          color: $colHighlight; }}
-      @if $dropDown {
-        > .dropdown-menu {
-          background-color: $bgDefault;
+
+      .navbar-text {
+        color: $colDefault; }
+        .navbar-nav {
+
           > li {
             > a {
               color: $colDefault;
               &:hover,  &:focus {
-                color: $colHighlight;
-                background-color: $bgHighlight; }}
-            &.divider {
-              background-color: $bgHighlight;}}}}}
-    @if $dropDown {
-      .open .dropdown-menu > .active {
-        > a, > a:hover, > a:focus {
-          color: $colHighlight;
-          background-color: $bgHighlight; }}}
-    > .active {
-      > a, > a:hover, > a:focus {
-        color: $colHighlight;
-        background-color: $bgHighlight; }}
-    > .open {
-      > a, > a:hover, > a:focus {
-        color: $colHighlight;
-        background-color: $bgHighlight; }}}
-  .navbar-toggle {
-    border-color: $bgHighlight;
-    &:hover, &:focus {
-      background-color: $bgHighlight; }
-    .icon-bar {
-      background-color: $colDefault; }}
-  .navbar-collapse,
-  .navbar-form {
-    border-color: $colDefault; }
-  .navbar-link {
-    color: $colDefault;
-    &:hover {
-      color: $colHighlight; }}}
-@media (max-width: 769px) {
-  .navbar-default .navbar-nav .open .dropdown-menu > li > a {
-    color: #305c36;
-  }
+                color: $colHighlight; }}
+                @if $dropDown {
+                  > .dropdown-menu {
+                    background-color: $bgDefault;
+                    > li {
+                      > a {
+                        color: $colDefault;
+                        &:hover,  &:focus {
+                          color: $colHighlight;
+                          background-color: $bgHighlight; }}
+                          &.divider {
+                            background-color: $bgHighlight;}}}}}
+                            @if $dropDown {
+                              .open .dropdown-menu > .active {
+                                > a, > a:hover, > a:focus {
+                                  color: $colHighlight;
+                                  background-color: $bgHighlight; }}}
+                                  > .active {
+                                    > a, > a:hover, > a:focus {
+                                      color: $colHighlight;
+                                      background-color: $bgHighlight; }}
+                                      > .open {
+                                        > a, > a:hover, > a:focus {
+                                          color: $colHighlight;
+                                          background-color: $bgHighlight; }}}
+                                          .navbar-toggle {
+                                            border-color: $bgHighlight;
+                                            &:hover, &:focus {
+                                              background-color: $bgHighlight; }
+                                              .icon-bar {
+                                                background-color: $colDefault; }}
+                                                .navbar-collapse,
+                                                .navbar-form {
+                                                  border-color: $colDefault; }
+                                                  .navbar-link {
+                                                    color: $colDefault;
+                                                    &:hover {
+                                                      color: $colHighlight; }}}
+                                                      @media (max-width: 769px) {
+                                                        .navbar-default .navbar-nav .open .dropdown-menu > li > a {
+                                                          color: #305c36;
+                                                        }
 
-  .location{
-    font-size: 25px;
-  }
-  .details{
-    font-size: 25px;
-    height:300px;
-    overflow-y:scroll;
-    width:100%;
-  }
-  .navbar-default .navbar-nav .open .dropdown-menu > li > a:hover,
-  .navbar-default .navbar-nav .open .dropdown-menu > li > a:focus {
-    color: #305c36;
-  }
-  .navbar-default .navbar-nav .open .dropdown-menu > .active > a,
-  .navbar-default .navbar-nav .open .dropdown-menu > .active > a:hover,
-  .navbar-default .navbar-nav .open .dropdown-menu > .active > a:focus {
-    color: #305c36;
-    background-color: #c8d6af;
-  }
-}
+                                                        .location{
+                                                          font-size: 25px;
+                                                        }
+                                                        .details{
+                                                          font-size: 25px;
+                                                          height:300px;
+                                                          overflow-y:scroll;
+                                                          width:100%;
+                                                        }
+                                                        .navbar-default .navbar-nav .open .dropdown-menu > li > a:hover,
+                                                        .navbar-default .navbar-nav .open .dropdown-menu > li > a:focus {
+                                                          color: #305c36;
+                                                        }
+                                                        .navbar-default .navbar-nav .open .dropdown-menu > .active > a,
+                                                        .navbar-default .navbar-nav .open .dropdown-menu > .active > a:hover,
+                                                        .navbar-default .navbar-nav .open .dropdown-menu > .active > a:focus {
+                                                          color: #305c36;
+                                                          background-color: #c8d6af;
+                                                        }
+                                                      }
 

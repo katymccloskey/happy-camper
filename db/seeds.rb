@@ -72,3 +72,12 @@ states.each do |state|
     sleep 3
   end
 end
+
+# Delete dead camps and state parks due to lack of information--comment if you want to test
+Campground.where(latitude: nil).each do |camp|
+  camp.destroy
+end
+Campground.all.each do |camp|
+  camp.destroy if camp.contract_id.length < 4
+end
+

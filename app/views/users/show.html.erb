@@ -1,29 +1,35 @@
 
-<div class="item row">
-<div class="col-md-6">
-  <% if current_user.provider.nil? %>
+<div class="showcase row">
+  <div class="col-md-10">
+    <% if current_user.provider.nil? %>
     <h2>Hello, <%= current_user.username %>!</h2>
-  <% else %>
+    <% else %>
     <h2>Hello, <%= current_user.name %>!</h2>
     <img class="img-circle" src=<%=current_user.picture %> >
-  <% end %>
+    <% end %>
+  </div>
 
+  <div class="col-md-2">
+    <h2><button class="btn"><%= link_to 'Edit Your Profile', edit_user_registration_path %></button></h2>
+  </div>
 </div>
 
-
-
-  <table class="table text-center">
-     <% @campground.each_slice(3) do |campgrounds| %>
-       <tbody>
-           <% campgrounds.each do |campground| %>
-             <td><%= image_tag("#{campground.picture}") %><br><%= link_to "#{campground.name}", campground_path(campground) %></td>
-           <% end %>
-       </tbody>
-     <% end %>
+<div class="showcase row">
+  <table class="table fav-camps">
+    <div class="col-md-12">
+      <tbody>
+       <% @campgrounds.each do |campground| %>
+       <td class="col-md-6 text-center">
+       <%= link_to image_tag(campground.google_picture.first), campground_path(campground), class: "img-fluid"%>
+       <div class="text-center col-md-6">
+          <h3><%=link_to "#{campground.name}", campground_path(campground)%></h3>
+          <p><%=campground.detail.description%></p>
+        </div>
+      </td>
+    </tbody>
+    <% end %>
   </table>
-
-
-
-
-<button class="btn"><%= link_to 'Edit Your Profile', edit_user_registration_path %></button>
 </div>
+</div>
+
+
