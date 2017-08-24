@@ -2,7 +2,9 @@ class User < ApplicationRecord
   has_many :favorites
   has_many :campgrounds, through: :favorites
 
-  devise :database_authenticatable, :registerable,
+  validates_presence_of :username
+
+  devise :database_authenticatable, :registerable, :validatable,
          :recoverable, :rememberable, :trackable, :omniauthable,
           :omniauth_providers => [:google_oauth2]
 
