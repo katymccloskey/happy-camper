@@ -28,11 +28,11 @@ class Campground < ApplicationRecord
         self.reviews = @reviews
         self.save
       end
-      if !spot.rating.nil?
-        @ratings += spot.rating
+      if @ratings.nil? || @ratings.zero?
+        @ratings = spot.rating
       end
     end
-    self.rating = (@ratings / 5)
+    self.rating = @ratings
     self.save
   end
 end

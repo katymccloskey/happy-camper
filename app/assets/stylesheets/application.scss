@@ -2,30 +2,32 @@
 @import "bootstrap";
 @import "font-awesome-sprockets";
 @import "font-awesome";
+@import url('https://fonts.googleapis.com/css?family=Cabin+Sketch:400');
 
-html, body{
+html{
+  position: relative;
+  min-height: 100%;
+}
+
+body{
+  margin-bottom: 350px;
   font-family: 'Encode Sans', sans-serif;
-
   background: -moz-linear-gradient(top, rgba(227,221,156,1) 0%, rgba(226,220,156,1) 1%, rgba(139,148,116,0.7) 100%); /* FF3.6-15 */
-background: -webkit-linear-gradient(top, rgba(227,221,156,1) 0%,rgba(226,220,156,1) 1%,rgba(139,148,116,0.7) 100%); /* Chrome10-25,Safari5.1-6 */
-background: linear-gradient(to bottom, rgba(227,221,156,1) 0%,rgba(226,220,156,1) 1%,rgba(139,148,116,0.7) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e3dd9c', endColorstr='#b38b9474',GradientType=0 ); /* IE6-9 */
-  /*background: #c8d6af;*/
-/*background: -moz-linear-gradient(top, #c8d6af 0%, #acb47b 33%, #466050 78%, #2c3b40 93%, #2c3b40 100%, #7db9e8 100%, #207cca 100%, #2c3b40 100%, #207cca 101%);
-background: -webkit-linear-gradient(top, #c8d6af 0%,#acb47b 33%,#466050 78%,#2c3b40 93%,#2c3b40 100%,#7db9e8 100%,#207cca 100%,#2c3b40 100%,#207cca 101%);
-background: linear-gradient(to bottom, #c8d6af 0%,#acb47b 33%,#466050 78%,#2c3b40 93%,#2c3b40 100%,#7db9e8 100%,#207cca 100%,#2c3b40 100%,#207cca 101%);
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#c8d6af', endColorstr='#207cca',GradientType=0 );*/
+  background: -webkit-linear-gradient(top, rgba(227,221,156,1) 0%,rgba(226,220,156,1) 1%,rgba(139,148,116,0.7) 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom, rgba(227,221,156,1) 0%,rgba(226,220,156,1) 1%,rgba(139,148,116,0.7) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e3dd9c', endColorstr='#b38b9474',GradientType=0 ); /* IE6-9 */
   color: #000000;
+
 }
 
 a {
-font-weight: bold;
-color: #558C8C;
-letter-spacing: 2px;
+  font-weight: bold;
+  color: #558C8C;
+  letter-spacing: 2px;
 }
 
 a:hover {
-    color: #E37C36;
+  color: #E37C36;
 }
 
 h1, h2, h3 {
@@ -35,7 +37,7 @@ h1, h2, h3 {
   -moz-background-clip: text;
   background-clip: text;
   color: transparent;
-  text-shadow: rgba(255,255,255,0.5) 0px 3px 3px;
+  /*text-shadow: rgba(255,255,255,0.5) 0px 3px 3px;*/
 }
 
 li {
@@ -43,8 +45,18 @@ li {
  padding:5px;
 }
 
+#copyright a {
+  position: absolute;
+  text-align: center;
+  bottom: 1px;
+  color: #F5F5F5;
+  font-weight: 100;
+  font-style: italic;
+}
 
 footer {
+  position: absolute;
+  bottom: 0;
   background:url("mountains3.png")  repeat-x scroll top transparent;
   background-size:100% 350px;
   height: 350px;
@@ -52,14 +64,34 @@ footer {
   overflow:hidden;
 }
 
+.fav-camps img {
+  width: auto;
+  height: 250px;
+  max-height: 250px;
+  margin: auto;
+  border: 6px double gainsboro;
+  box-shadow: 3px 3px 3px gray;
+}
+
+.fav-camps a:hover {
+  color: #E37C36;
+}
+
 #stars-rating {
   color: #E7711B;
+}
+
+.fa-3x {
+  margin-right: 18px;
 }
 
 .important-star{
   color:#305C36;
   text-shadow: 2px 2px 2px gray;
+}
 
+.google-login {
+  font-family: 'Encode Sans', sans-serif;
 }
 
 #myCarousel img {
@@ -82,6 +114,7 @@ footer {
   width: 100%;
   padding-bottom: 56.25%; /* Ratio 16:9 ( 100%/16*9 = 56.25% ) */
 }
+
 .iframe-container > *{
   top: 0;
   right: 0;
@@ -94,12 +127,12 @@ footer {
 }
 
 .showcase {
-  border: 6px inset #E3DD9C;
+  border: 3px inset #E3DD9C;
   border-radius: 6px;
   background: #f3f1e5; /* Old browsers */
   background: -moz-linear-gradient(top, #f3f1e5 0%, #efeddf 40%, #eae7d6 100%); /* FF3.6-15 */
   background: -webkit-linear-gradient(top, #f3f1e5 0%,#efeddf 40%,#eae7d6 100%); /* Chrome10-25,Safari5.1-6 */
-  background: linear-gradient(to bottom, #f3f1e5 0%,#efeddf 40%,#eae7d6 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  background: #F5F5F5; /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f3f1e5', endColorstr='#eae7d6',GradientType=0 ); /* IE6-9 */
 }
 .center-cropper-title {
@@ -132,6 +165,9 @@ footer {
   list-style: none;
   border-bottom: groove gainsboro;
   padding: 10px;
+}
+.each-campground-list a:hover {
+   color: #E37C36;
 }
 
 #add-campgrounds{
@@ -168,10 +204,10 @@ ul.ui-autocomplete {
 
 /* REVIEW STYLING*/
 a {
-  color: #0254EB
+  color: black
 }
 a:visited {
-  color: #0254EB
+  color: black
 }
 a.morelink {
   text-decoration:none;
@@ -196,86 +232,96 @@ a.morelink {
 .item.right:not(.prev) {visibility: hidden;}
 .rightest{ visibility: visible;}
 
-$bgDefault      : #f2f0e3;
-$bgHighlight    : #ddd89a;
-$colDefault     : #807b49;
+$bgDefault      : #F5F5F5;
+$bgHighlight    : #F5F5F5;
+$colDefault     : #131313;
 $colHighlight   : #E37C36;
 $dropDown       : false;
 .navbar-default {
   background-color: $bgDefault;
   border-color: $bgHighlight;
   .navbar-brand {
-    color: $colDefault;
+    font-family: 'Cabin Sketch', cursive;
+    font-size: 230%;
+    color: black;
+    margin-top: 10px;
     &:hover, &:focus {
       color: $colHighlight; }}
-  .navbar-text {
-    color: $colDefault; }
-  .navbar-nav {
-    > li {
-      > a {
-        color: $colDefault;
-        &:hover,  &:focus {
-          color: $colHighlight; }}
-      @if $dropDown {
-        > .dropdown-menu {
-          background-color: $bgDefault;
+
+  .navbar-brand-img {
+    transform: scale(2, 2);
+    margin-top: 4px;
+      }
+
+      .navbar-text {
+        color: $colDefault; }
+        .navbar-nav {
+
           > li {
             > a {
               color: $colDefault;
               &:hover,  &:focus {
-                color: $colHighlight;
-                background-color: $bgHighlight; }}
-            &.divider {
-              background-color: $bgHighlight;}}}}}
-    @if $dropDown {
-      .open .dropdown-menu > .active {
-        > a, > a:hover, > a:focus {
-          color: $colHighlight;
-          background-color: $bgHighlight; }}}
-    > .active {
-      > a, > a:hover, > a:focus {
-        color: $colHighlight;
-        background-color: $bgHighlight; }}
-    > .open {
-      > a, > a:hover, > a:focus {
-        color: $colHighlight;
-        background-color: $bgHighlight; }}}
-  .navbar-toggle {
-    border-color: $bgHighlight;
-    &:hover, &:focus {
-      background-color: $bgHighlight; }
-    .icon-bar {
-      background-color: $colDefault; }}
-  .navbar-collapse,
-  .navbar-form {
-    border-color: $colDefault; }
-  .navbar-link {
-    color: $colDefault;
-    &:hover {
-      color: $colHighlight; }}}
-@media (max-width: 769px) {
-  .navbar-default .navbar-nav .open .dropdown-menu > li > a {
-    color: #305c36;
-  }
+                color: $colHighlight; }}
+                @if $dropDown {
+                  > .dropdown-menu {
+                    background-color: $bgDefault;
+                    > li {
+                      > a {
+                        color: $colDefault;
+                        &:hover,  &:focus {
+                          color: $colHighlight;
+                          background-color: $bgHighlight; }}
+                          &.divider {
+                            background-color: $bgHighlight;}}}}}
+                            @if $dropDown {
+                              .open .dropdown-menu > .active {
+                                > a, > a:hover, > a:focus {
+                                  color: $colHighlight;
+                                  background-color: $bgHighlight; }}}
+                                  > .active {
+                                    > a, > a:hover, > a:focus {
+                                      color: $colHighlight;
+                                      background-color: $bgHighlight; }}
+                                      > .open {
+                                        > a, > a:hover, > a:focus {
+                                          color: $colHighlight;
+                                          background-color: $bgHighlight; }}}
+                                          .navbar-toggle {
+                                            border-color: $bgHighlight;
+                                            &:hover, &:focus {
+                                              background-color: $bgHighlight; }
+                                              .icon-bar {
+                                                background-color: $colDefault; }}
+                                                .navbar-collapse,
+                                                .navbar-form {
+                                                  border-color: $colDefault; }
+                                                  .navbar-link {
+                                                    color: $colDefault;
+                                                    &:hover {
+                                                      color: $colHighlight; }}}
+                                                      @media (max-width: 769px) {
+                                                        .navbar-default .navbar-nav .open .dropdown-menu > li > a {
+                                                          color: #305c36;
+                                                        }
 
-  .location{
-    font-size: 25px;
-  }
-  .details{
-    font-size: 25px;
-    height:300px;
-    overflow-y:scroll;
-    width:100%;
-  }
-  .navbar-default .navbar-nav .open .dropdown-menu > li > a:hover,
-  .navbar-default .navbar-nav .open .dropdown-menu > li > a:focus {
-    color: #305c36;
-  }
-  .navbar-default .navbar-nav .open .dropdown-menu > .active > a,
-  .navbar-default .navbar-nav .open .dropdown-menu > .active > a:hover,
-  .navbar-default .navbar-nav .open .dropdown-menu > .active > a:focus {
-    color: #305c36;
-    background-color: #c8d6af;
-  }
-}
+                                                        .location{
+                                                          font-size: 25px;
+                                                        }
+                                                        .details{
+                                                          font-size: 25px;
+                                                          height:300px;
+                                                          overflow-y:scroll;
+                                                          width:100%;
+                                                        }
+                                                        .navbar-default .navbar-nav .open .dropdown-menu > li > a:hover,
+                                                        .navbar-default .navbar-nav .open .dropdown-menu > li > a:focus {
+                                                          color: #305c36;
+                                                        }
+                                                        .navbar-default .navbar-nav .open .dropdown-menu > .active > a,
+                                                        .navbar-default .navbar-nav .open .dropdown-menu > .active > a:hover,
+                                                        .navbar-default .navbar-nav .open .dropdown-menu > .active > a:focus {
+                                                          color: #305c36;
+                                                          background-color: #c8d6af;
+                                                        }
+                                                      }
 
