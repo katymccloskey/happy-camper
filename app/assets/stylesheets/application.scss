@@ -118,12 +118,12 @@ footer {
 }
 
 .showcase {
-  border: 6px inset #E3DD9C;
+  border: 3px inset #E3DD9C;
   border-radius: 6px;
   background: #f3f1e5; /* Old browsers */
   background: -moz-linear-gradient(top, #f3f1e5 0%, #efeddf 40%, #eae7d6 100%); /* FF3.6-15 */
   background: -webkit-linear-gradient(top, #f3f1e5 0%,#efeddf 40%,#eae7d6 100%); /* Chrome10-25,Safari5.1-6 */
-  background: linear-gradient(to bottom, #f3f1e5 0%,#efeddf 40%,#eae7d6 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  background: #F5F5F5; /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f3f1e5', endColorstr='#eae7d6',GradientType=0 ); /* IE6-9 */
 }
 .center-cropper-title {
