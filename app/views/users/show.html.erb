@@ -1,28 +1,33 @@
 
 <div class="showcase row">
-  <div class="col-md-12">
+  <div class="col-md-10">
     <% if current_user.provider.nil? %>
     <h2>Hello, <%= current_user.username %>!</h2>
     <% else %>
     <h2>Hello, <%= current_user.name %>!</h2>
     <img class="img-circle" src=<%=current_user.picture %> >
     <% end %>
+  </div>
 
+  <div class="col-md-2">
+    <h2><button class="btn"><%= link_to 'Edit Your Profile', edit_user_registration_path %></button></h2>
   </div>
 </div>
 
 <div class="showcase row">
-<div class="col-md-12">
-<table class="table fav-camps">
- <% @campground.each_slice(3) do |campgrounds| %>
- <tbody>
-   <% campgrounds.each do |campground| %>
-   <td><%= link_to "#{campground.name} #{image_tag("#{campground.google_picture.first}")}", campground_path(campground)%><br></td>
-   <% end %>
- </tbody>
- <% end %>
-</table>
+  <table class="table fav-camps">
+    <div class="col-md-12">
+      <tbody>
+       <% @campgrounds.each do |campground| %>
+       <td class="col-md-6 text-left">
+       <%= link_to image_tag(campground.google_picture.first), campground_path(campground), class: "img-fluid"%>
+       <div class="text-center col-md-6">
+          <%=link_to "#{campground.name}", campground_path(campground)%>
+        </div>
+      </td>
+    </tbody>
+    <% end %>
+  </table>
+</div>
 
-<button class="btn"><%= link_to 'Edit Your Profile', edit_user_registration_path %></button>
-</div>
-</div>
+
