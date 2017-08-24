@@ -5,17 +5,17 @@
 
 html, body{
   font-family: 'Encode Sans', sans-serif;
-
   background: -moz-linear-gradient(top, rgba(227,221,156,1) 0%, rgba(226,220,156,1) 1%, rgba(139,148,116,0.7) 100%); /* FF3.6-15 */
-background: -webkit-linear-gradient(top, rgba(227,221,156,1) 0%,rgba(226,220,156,1) 1%,rgba(139,148,116,0.7) 100%); /* Chrome10-25,Safari5.1-6 */
-background: linear-gradient(to bottom, rgba(227,221,156,1) 0%,rgba(226,220,156,1) 1%,rgba(139,148,116,0.7) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e3dd9c', endColorstr='#b38b9474',GradientType=0 ); /* IE6-9 */
+  background: -webkit-linear-gradient(top, rgba(227,221,156,1) 0%,rgba(226,220,156,1) 1%,rgba(139,148,116,0.7) 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom, rgba(227,221,156,1) 0%,rgba(226,220,156,1) 1%,rgba(139,148,116,0.7) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e3dd9c', endColorstr='#b38b9474',GradientType=0 ); /* IE6-9 */
   /*background: #c8d6af;*/
 /*background: -moz-linear-gradient(top, #c8d6af 0%, #acb47b 33%, #466050 78%, #2c3b40 93%, #2c3b40 100%, #7db9e8 100%, #207cca 100%, #2c3b40 100%, #207cca 101%);
 background: -webkit-linear-gradient(top, #c8d6af 0%,#acb47b 33%,#466050 78%,#2c3b40 93%,#2c3b40 100%,#7db9e8 100%,#207cca 100%,#2c3b40 100%,#207cca 101%);
 background: linear-gradient(to bottom, #c8d6af 0%,#acb47b 33%,#466050 78%,#2c3b40 93%,#2c3b40 100%,#7db9e8 100%,#207cca 100%,#2c3b40 100%,#207cca 101%);
 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#c8d6af', endColorstr='#207cca',GradientType=0 );*/
   color: #000000;
+  height: 100;
 }
 
 a {
@@ -35,7 +35,7 @@ h1, h2, h3 {
   -moz-background-clip: text;
   background-clip: text;
   color: transparent;
-  text-shadow: rgba(255,255,255,0.5) 0px 3px 3px;
+  /*text-shadow: rgba(255,255,255,0.5) 0px 3px 3px;*/
 }
 
 li {
@@ -57,14 +57,12 @@ footer {
 }
 
 .fa-3x {
-
-margin-right: 18px;
+  margin-right: 18px;
 }
 
 .important-star{
   color:#305C36;
   text-shadow: 2px 2px 2px gray;
-
 }
 
 #myCarousel img {
@@ -87,6 +85,7 @@ margin-right: 18px;
   width: 100%;
   padding-bottom: 56.25%; /* Ratio 16:9 ( 100%/16*9 = 56.25% ) */
 }
+
 .iframe-container > *{
   top: 0;
   right: 0;
