@@ -2,6 +2,7 @@
 @import "bootstrap";
 @import "font-awesome-sprockets";
 @import "font-awesome";
+@import url('https://fonts.googleapis.com/css?family=Cabin+Sketch:400');
 
 html, body{
   font-family: 'Encode Sans', sans-serif;
@@ -219,7 +220,7 @@ a.morelink {
 .item.right:not(.prev) {visibility: hidden;}
 .rightest{ visibility: visible;}
 
-$bgDefault      : #f2f0e3;
+$bgDefault      : #F5F5F5;
 $bgHighlight    : #ddd89a;
 $colDefault     : #807b49;
 $colHighlight   : #E37C36;
@@ -228,9 +229,16 @@ $dropDown       : false;
   background-color: $bgDefault;
   border-color: $bgHighlight;
   .navbar-brand {
-    color: $colDefault;
+    font-family: 'Cabin Sketch', cursive;
+    font-size: 230%;
+    color: black;
+    margin-top: 10px;
     &:hover, &:focus {
       color: $colHighlight; }}
+  .navbar-brand-img {
+    transform: scale(2, 2);
+    margin-top: 4px;
+      }
   .navbar-text {
     color: $colDefault; }
   .navbar-nav {
