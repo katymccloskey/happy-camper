@@ -22,6 +22,7 @@ gem "mustache", "~> 1.0"
 gem 'google_places'
 gem 'jquery-ui-rails'
 gem 'geocoder'
+gem 'rails-controller-testing'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.3'
@@ -56,6 +57,7 @@ group :development, :test do
   group :development, :test do
   gem 'rspec-rails', '~> 3.6'
   gem 'capybara'
+  gem 'factory_girl_rails'
 end
 end
 
