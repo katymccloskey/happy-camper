@@ -2,8 +2,9 @@
 @import "bootstrap";
 @import "font-awesome-sprockets";
 @import "font-awesome";
+@import url('https://fonts.googleapis.com/css?family=Cabin+Sketch:400');
 
-html {
+html{
   position: relative;
   min-height: 100%;
 }
@@ -16,6 +17,7 @@ body{
   background: linear-gradient(to bottom, rgba(227,221,156,1) 0%,rgba(226,220,156,1) 1%,rgba(139,148,116,0.7) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e3dd9c', endColorstr='#b38b9474',GradientType=0 ); /* IE6-9 */
   color: #000000;
+
 }
 
 a {
@@ -35,7 +37,7 @@ h1, h2, h3 {
   -moz-background-clip: text;
   background-clip: text;
   color: transparent;
-  text-shadow: rgba(255,255,255,0.5) 0px 3px 3px;
+  /*text-shadow: rgba(255,255,255,0.5) 0px 3px 3px;*/
 }
 
 li {
@@ -43,6 +45,14 @@ li {
  padding:5px;
 }
 
+#copyright a {
+  position: absolute;
+  text-align: center;
+  bottom: 1px;
+  color: #F5F5F5;
+  font-weight: 100;
+  font-style: italic;
+}
 
 footer {
   position: absolute;
@@ -71,10 +81,17 @@ footer {
   color: #E7711B;
 }
 
+.fa-3x {
+  margin-right: 18px;
+}
+
 .important-star{
   color:#305C36;
   text-shadow: 2px 2px 2px gray;
+}
 
+.google-login {
+  font-family: 'Encode Sans', sans-serif;
 }
 
 #myCarousel img {
@@ -97,6 +114,7 @@ footer {
   width: 100%;
   padding-bottom: 56.25%; /* Ratio 16:9 ( 100%/16*9 = 56.25% ) */
 }
+
 .iframe-container > *{
   top: 0;
   right: 0;
@@ -109,12 +127,12 @@ footer {
 }
 
 .showcase {
-  border: 6px inset #E3DD9C;
+  border: 3px inset #E3DD9C;
   border-radius: 6px;
   background: #f3f1e5; /* Old browsers */
   background: -moz-linear-gradient(top, #f3f1e5 0%, #efeddf 40%, #eae7d6 100%); /* FF3.6-15 */
   background: -webkit-linear-gradient(top, #f3f1e5 0%,#efeddf 40%,#eae7d6 100%); /* Chrome10-25,Safari5.1-6 */
-  background: linear-gradient(to bottom, #f3f1e5 0%,#efeddf 40%,#eae7d6 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  background: #F5F5F5; /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f3f1e5', endColorstr='#eae7d6',GradientType=0 ); /* IE6-9 */
 }
 .center-cropper-title {
@@ -186,10 +204,10 @@ ul.ui-autocomplete {
 
 /* REVIEW STYLING*/
 a {
-  color: #0254EB
+  color: black
 }
 a:visited {
-  color: #0254EB
+  color: black
 }
 a.morelink {
   text-decoration:none;
@@ -214,7 +232,7 @@ a.morelink {
 .item.right:not(.prev) {visibility: hidden;}
 .rightest{ visibility: visible;}
 
-$bgDefault      : #f2f0e3;
+$bgDefault      : #F5F5F5;
 $bgHighlight    : #ddd89a;
 $colDefault     : #807b49;
 $colHighlight   : #E37C36;
@@ -223,12 +241,22 @@ $dropDown       : false;
   background-color: $bgDefault;
   border-color: $bgHighlight;
   .navbar-brand {
-    color: $colDefault;
+    font-family: 'Cabin Sketch', cursive;
+    font-size: 230%;
+    color: black;
+    margin-top: 10px;
     &:hover, &:focus {
       color: $colHighlight; }}
+
+  .navbar-brand-img {
+    transform: scale(2, 2);
+    margin-top: 4px;
+      }
+
       .navbar-text {
         color: $colDefault; }
         .navbar-nav {
+
           > li {
             > a {
               color: $colDefault;
