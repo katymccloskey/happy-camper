@@ -20,7 +20,11 @@
       <tbody>
        <% @campgrounds.each do |campground| %>
        <td class="col-md-6 text-center">
+       <%if !campground.google_picture.empty?%>
        <%= link_to image_tag(campground.google_picture.first), campground_path(campground), class: "img-fluid"%>
+       <% else %>
+       NO PICTURE!
+       <%end%>
        <div class="text-center col-md-6">
           <h3><%=link_to "#{campground.name}", campground_path(campground)%></h3>
           <p><%=campground.detail.description%></p>
